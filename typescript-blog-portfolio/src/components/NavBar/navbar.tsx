@@ -13,22 +13,22 @@ const NavBar = () => {
           <ul className="flex items-center justify-between">
             <li>
               <Link href="/blog">
-                <p className="py-2 px-3 block text-black">Home</p>
+                <p className="py-2 px-3 block text-black hover:bg-gray-400">Home</p>
               </Link>
             </li>
             <li>
               <Link href="/about">
-                <p className="py-2 px-3 block text-black ">About</p>
+                <p className="py-2 px-3 block text-black hover:bg-gray-400">About</p>
               </Link>
             </li>
             <li>
               <Link href="/blog">
-                <p className="py-2 px-3 block text-black">Blog</p>
+                <p className="py-2 px-3 block text-black hover:bg-gray-400">Blog</p>
               </Link>
             </li>
             <li>
               <Link href="/about">
-                <p className="py-2 px-3 block text-black">GitHub</p>
+                <p className="py-2 px-3 block text-black hover:bg-gray-400">GitHub</p>
               </Link>
             </li>
           </ul>
