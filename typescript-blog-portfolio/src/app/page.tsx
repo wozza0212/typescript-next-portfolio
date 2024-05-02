@@ -1,35 +1,39 @@
-import BlogPage from "@/components/Blog/blog-page.tsx";
+import BlogPage from "@/components/Blog/blog-list.tsx";
 import BaseLayout from "@/components/Layouts/base-layout";
 
-type BlogPost = {
+interface BlogPost {
   title: string;
   description: string;
-  date: string | null;
-//   content: string | null;
+  date: string;
+  image: string;
 };
 
 const mockposts: BlogPost[] = [
   {
-      title: "My first post",
-      description: "This is my first post",
-      date: "2024-05-01"
+    title: "My first post",
+    description: "This is my first post",
+    date: "2024-05-01",
+    image : '/Images/NextLogo.png'
   },
   {
-      title: "My second post",
-      description: "This is my second post",
-      date: "2024-05-01"
+    title: "My second post",
+    description: "This is my second post",
+    date: "2024-05-01",
+    image : '/Images/NextLogo.png'
   },
   {
-      title: "My third post",
-      description: "This is my third post",
-      date: "2024-05-01"
+    title: "My third post",
+    description: "This is my third post",
+    date: "2024-05-01",
+    image : '/Images/NextLogo.png'
   },
   {
-      title: "My fourth post",
-      description: "This is my fourth post",
-      date: "2024-05-01"
-  }
-]
+    title: "My fourth post",
+    description: "This is my fourth post",
+    date: "2024-05-01",
+    image : '/Images/NextLogo.png'
+  },
+];
 
 export default function Home() {
   return (
