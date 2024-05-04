@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
+import BlogItem from "./blog-item";
 
 type BlogPost = {
   title: string;
@@ -19,13 +20,7 @@ const BlogList: NextPage<BlogPageProps> = ({ mockposts }) => {
       <p>Blog page content</p>
       <br />
       {mockposts.map((post: BlogPost, index: number) => (
-        <div key={index} className='p-10 border-white border-2 m-10'>
-          <h2>{post.title}</h2>
-          <p>{post.date}</p>
-          <p>{post.description}</p>
-          <Image src={post.image} alt={post.title} width={200} height={200} />
-          <br />
-        </div>
+        <BlogItem post={post} index={index} key={index} />
       ))}
     </div>
   );
