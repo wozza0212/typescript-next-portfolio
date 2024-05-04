@@ -12,15 +12,14 @@ type BlogPageProps = {
   mockposts: BlogPost[];
 };
 
-const BlogPage: NextPage<BlogPageProps> = ({ mockposts }) => {
+const BlogList: NextPage<BlogPageProps> = ({ mockposts }) => {
   return (
     <div>
       <h1>Blog</h1>
       <p>Blog page content</p>
       <br />
       {mockposts.map((post: BlogPost, index: number) => (
-        <div key={index}>
-          <p>{index}</p>
+        <div key={index} className='p-10 border-white border-2 m-10'>
           <h2>{post.title}</h2>
           <p>{post.date}</p>
           <p>{post.description}</p>
@@ -32,4 +31,4 @@ const BlogPage: NextPage<BlogPageProps> = ({ mockposts }) => {
   );
 };
 
-export default BlogPage;
+export default BlogList;

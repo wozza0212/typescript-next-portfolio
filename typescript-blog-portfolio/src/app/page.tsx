@@ -1,4 +1,4 @@
-import BlogPage from "@/components/Blog/blog-list.tsx";
+import BlogList from "@/components/Blog/blog-list.tsx";
 import BaseLayout from "@/components/Layouts/base-layout";
 
 interface BlogPost {
@@ -40,7 +40,7 @@ export default function Home() {
     <BaseLayout >
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-6xl font-bold">Welcome to my Site</h1>
-      <BlogPage mockposts={mockposts}/>
+      <BlogList mockposts={mockposts}/>
       <p className="text-xl">
         This is my blog where I write about web development and other things I
         find interesting.
