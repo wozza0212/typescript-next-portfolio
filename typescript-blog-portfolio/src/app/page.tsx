@@ -1,4 +1,4 @@
-import BlogList from "@/components/Blog/blog-list.tsx";
+import BlogList from "@/components/Blog/blog-list";
 import BaseLayout from "@/components/Layouts/base-layout";
 
 interface BlogPost {
