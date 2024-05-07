@@ -3,6 +3,7 @@ import BaseLayout from "@/components/Layouts/base-layout";
 
 interface BlogPost {
   title: string;
+  author: string
   description: string;
   date: string;
   image: string;
@@ -11,24 +12,28 @@ interface BlogPost {
 const mockposts: BlogPost[] = [
   {
     title: "My first post",
+    author: 'Wozza',
     description: "This is my first post",
     date: "2024-05-01",
     image : '/Images/NextLogo.png'
   },
   {
     title: "My second post",
+    author: 'Wozza',
     description: "This is my second post",
     date: "2024-05-01",
     image : '/Images/NextLogo.png'
   },
   {
     title: "My third post",
+    author: 'Wozza',
     description: "This is my third post",
     date: "2024-05-01",
     image : '/Images/NextLogo.png'
   },
   {
     title: "My fourth post",
+    author: 'Wozza',
     description: "This is my fourth post",
     date: "2024-05-01",
     image : '/Images/NextLogo.png'

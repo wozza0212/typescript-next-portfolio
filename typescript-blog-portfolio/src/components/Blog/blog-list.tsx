@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Image from "next/image";
 import BlogItem from "./blog-item";
 
 type BlogPost = {
@@ -7,6 +6,7 @@ type BlogPost = {
   description: string;
   date: string;
   image: string;
+  author: string;
 };
 
 type BlogPageProps = {
