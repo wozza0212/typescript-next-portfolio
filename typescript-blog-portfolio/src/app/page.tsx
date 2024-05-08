@@ -2,17 +2,10 @@ import BlogList from "@/components/Blog/blog-list";
 import BaseLayout from "@/components/Layouts/base-layout";
 import { getBlogs } from "../../lib/blogs";
 import { NextPage } from "next";
-
-interface BlogPost {
-  title: string;
-  author: string
-  description: string;
-  date: string;
-  image: string;
-};
+import { Blog } from "../../interfaces/Blog";
 
 type BlogPageProps = {
-  blogs: BlogPost[];
+  blogs: Blog[];
 }
 
 // const mockposts: BlogPost[] = [

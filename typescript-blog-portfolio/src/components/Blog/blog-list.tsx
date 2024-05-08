@@ -2,16 +2,10 @@ import { NextPage } from "next";
 import BlogItem from "./blog-item";
 import { getBlogs } from "../../../lib/blogs";
 
-type BlogPost = {
-  title: string;
-  description: string;
-  date: string;
-  image: string;
-  author: string;
-};
+import { Blog } from "../../../interfaces/Blog";
 
 type BlogPageProps = {
-  blogs: BlogPost[];
+  blogs: Blog[];
 };
 
 export const fetchBlogs = async () : Promise<object> => {
@@ -29,7 +23,7 @@ const BlogList: NextPage<BlogPageProps> = async ({ blogs }) => {
   return (
     <div>
       <br />
-      {blogs.map((post: BlogPost, index: number) => (
+      {blogs.map((post: Blog, index: number) => (
         <BlogItem post={post} index={index} key={index} />
       ))}
     </div>
