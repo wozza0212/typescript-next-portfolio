@@ -1,7 +1,7 @@
 ---
 title: Unity 2D With C# - Complete Game Dev Course
 description: Create the complete 2D survival game in Unity with C#. Learn best practices and patterns.
-image: https://thrangra.sirv.com/Final_Unity_2D_Small.jpg
+image: /Images/NextLogo.png
 date: "2022-01-25"
 ---
 
