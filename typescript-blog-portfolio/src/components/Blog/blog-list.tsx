@@ -1,25 +1,35 @@
 import { NextPage } from "next";
-import Image from "next/image";
 import BlogItem from "./blog-item";
+import { getBlogs } from "../../../lib/blogs";
 
 type BlogPost = {
   title: string;
   description: string;
   date: string;
   image: string;
+  author: string;
 };
 
 type BlogPageProps = {
-  mockposts: BlogPost[];
+  blogs: BlogPost[];
 };
 
-const BlogList: NextPage<BlogPageProps> = ({ mockposts }) => {
+export const fetchBlogs = async () : Promise<object> => {
+
+  const blogs = getBlogs();
+  console.log(blogs)
+  
+  return {
+    props: {blogs}
+  }
+
+}
+
+const BlogList: NextPage<BlogPageProps> = async ({ blogs }) => {
   return (
     <div>
-      <h1>Blog</h1>
-      <p>Blog page content</p>
       <br />
-      {mockposts.map((post: BlogPost, index: number) => (
+      {blogs.map((post: BlogPost, index: number) => (
         <BlogItem post={post} index={index} key={index} />
       ))}
     </div>
