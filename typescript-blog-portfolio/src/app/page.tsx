@@ -8,37 +8,6 @@ type BlogPageProps = {
   blogs: Blog[];
 }
 
-// const mockposts: BlogPost[] = [
-//   {
-//     title: "My first post",
-//     author: 'Wozza',
-//     description: "This is my first post",
-//     date: "2024-05-01",
-//     image : '/Images/NextLogo.png'
-//   },
-//   {
-//     title: "My second post",
-//     author: 'Wozza',
-//     description: "This is my second post",
-//     date: "2024-05-01",
-//     image : '/Images/NextLogo.png'
-//   },
-//   {
-//     title: "My third post",
-//     author: 'Wozza',
-//     description: "This is my third post",
-//     date: "2024-05-01",
-//     image : '/Images/NextLogo.png'
-//   },
-//   {
-//     title: "My fourth post",
-//     author: 'Wozza',
-//     description: "This is my fourth post",
-//     date: "2024-05-01",
-//     image : '/Images/NextLogo.png'
-//   },
-// ];
-
 const Home: NextPage<BlogPageProps> = () => {
   const blogs = getBlogs();
   return (
