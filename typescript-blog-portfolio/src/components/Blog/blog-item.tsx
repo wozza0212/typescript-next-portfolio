@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { FunctionComponent } from 'react';
 type Props = {
@@ -12,13 +13,14 @@ type BlogPost = {
     description: string;
     date: string;
     image: string;
+    slug: string;
   };
 
 const BlogItem : FunctionComponent<Props> = (props : Props) => {
     const { post, index } = props;
     return (
         <div key={index} className='p-10 border-white border-2 m-10'>
-        <h2>{post.title}</h2>
+        <Link href={`/blog/${post.slug}`}><h2>{post.title}</h2></Link>
         <h2>{post.author}</h2>
         <p>{post.date}</p>
         <p>{post.description}</p>
