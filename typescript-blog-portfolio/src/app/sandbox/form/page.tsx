@@ -7,7 +7,7 @@ import BaseLayout from "@/components/Layouts/base-layout";
 const FormPage = () => {
   const [text, setText] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
-  const [message, setMessage] = useState<string | null>('Please enter more than 20 letters.');
+  const [message, setMessage] = useState<string | null>(null);
 
   const unusedButton =
     "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
@@ -18,11 +18,11 @@ const FormPage = () => {
     if(text === '') {
       setBtnDisabled(true);
       setMessage('Please enter more than 20 letters.')
-    } else if (text !== '' && text.trim().length < 20) {
+    } else if (text !== '' && text.trim().length < 5) {
       setBtnDisabled(true);
       setMessage('Please enter more than 20 letters.')
     }
-    else if (text !== '' && text.trim().length > 20) {
+    else if (text !== '' && text.trim().length >= 5) {
       setBtnDisabled(false);
       setMessage(null)
     }
@@ -43,8 +43,7 @@ const FormPage = () => {
               placeholder="Write a review..."
               value={text}
             ></input>
-            {message && <p>{message}</p>}
-            
+            {message && <p>{message}</p>}            
           </div>
           {btnDisabled ? <FormButton version={`${disabledButton}`} type={"submit"} isDisabled={btnDisabled}>
               Submit
