@@ -3,16 +3,18 @@
 import { useState } from "react";
 import FormButton from "@/components/Button/form-button";
 import BaseLayout from "@/components/Layouts/base-layout";
+import RatingSelect from "@/components/Rating/rating-select";
 
 const FormPage = () => {
   const [text, setText] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
+  const [rating, setRating] = useState<number>(10);
   const [message, setMessage] = useState<string | null>(null);
 
   const unusedButton =
     "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
   const disabledButton =
-    "bg-red-500 hover:bg-grey-700 text-white font-bold py-2 px-4 rounded";
+    "bg-gray-500 hover:bg-grey-700 text-white font-bold py-2 px-4 rounded";
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if(text === '') {
@@ -50,6 +52,7 @@ const FormPage = () => {
             </FormButton> : <FormButton version={`${unusedButton}`} type={"submit"} isDisabled={btnDisabled}>
               Submit
             </FormButton> }
+            <RatingSelect />
         </form>
       </div>
     </BaseLayout>
