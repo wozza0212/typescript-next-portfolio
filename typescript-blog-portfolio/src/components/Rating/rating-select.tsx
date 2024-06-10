@@ -1,12 +1,11 @@
 import { useState } from "react"
 import styles from "./rating-select.module.css"
 
-const RatingSelect = () => {
+const RatingSelect = ({rating, setRating} : {rating : number, setRating : (rating : number) => void}) => {
     const [selected, setSelected] = useState<number>(10)
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelected(+e.target.value)
-        console.log(+e.target.value)
-        // select(+e.target.value)
+    
     }
     return (
         <ul className={styles.rating} >
