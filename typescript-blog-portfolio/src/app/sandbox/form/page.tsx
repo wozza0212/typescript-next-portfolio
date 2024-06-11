@@ -45,14 +45,17 @@ const FormPage = () => {
               placeholder="Write a review..."
               value={text}
             ></input>
-            {message && <p>{message}</p>}            
-          </div>
-          {btnDisabled ? <FormButton version={`${disabledButton}`} type={"submit"} isDisabled={btnDisabled}>
+            <div style={{paddingTop: '4px'}}>
+            {message && <p>{message}</p>}
+            {btnDisabled ? <FormButton version={`${disabledButton}`} type={"submit"} isDisabled={btnDisabled}>
               Submit
             </FormButton> : <FormButton version={`${unusedButton}`} type={"submit"} isDisabled={btnDisabled}>
               Submit
-            </FormButton> }
-            <RatingSelect rating={rating} setRating={setRating}/>
+            </FormButton> }            
+            </div>
+          </div>
+          
+            <RatingSelect select={(rating : number) => setRating(rating)}/>
         </form>
       </div>
     </BaseLayout>
