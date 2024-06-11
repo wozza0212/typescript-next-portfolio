@@ -52,7 +52,7 @@ const FormPage = () => {
             </FormButton> : <FormButton version={`${unusedButton}`} type={"submit"} isDisabled={btnDisabled}>
               Submit
             </FormButton> }
-            <RatingSelect rating={rating} setRating={setRating}/>
+            <RatingSelect select={(rating : number) => setRating(rating)}/>
         </form>
       </div>
     </BaseLayout>
