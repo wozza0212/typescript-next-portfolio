@@ -52,8 +52,6 @@ const FormPage = () => {
             </FormButton> : <FormButton version={`${unusedButton}`} type={"submit"} isDisabled={btnDisabled}>
               Submit
             </FormButton> }
-            import RatingSelect from "@/components/Rating/rating-select";
-
             <RatingSelect rating={rating} setRating={setRating}/>
         </form>
       </div>
