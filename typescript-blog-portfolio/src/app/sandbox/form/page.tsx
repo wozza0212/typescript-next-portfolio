@@ -71,8 +71,6 @@ const FormPage = () => {
         rating: rating,
         commentNumber: baseFeedback.length + 1,
       };
-      baseFeedback.push(newFeedback);
-      console.log(baseFeedback);
       setFeedback([...feedback, newFeedback]);
     }
   };
