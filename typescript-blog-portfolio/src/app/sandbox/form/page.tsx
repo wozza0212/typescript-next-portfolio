@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import FormButton from "@/components/Button/form-button";
 import BaseLayout from "@/components/Layouts/base-layout";
 import RatingSelect from "@/components/Rating/rating-select";
+import FeedbackCard from "@/components/FeedbackCard/FeedbackCard";
 
 type Feedback = {
   commentNumber: number;
@@ -119,8 +120,7 @@ const FormPage = () => {
             {feedback.map((feedbackItem) => {
               return (
                 <li key={`feedbackNum${feedbackItem.commentNumber}`}>
-                  <p>{feedbackItem.text}</p>
-                  <p>{feedbackItem.rating}</p>
+                  <FeedbackCard feedback={feedbackItem} />
                 </li>
               );
             })}
