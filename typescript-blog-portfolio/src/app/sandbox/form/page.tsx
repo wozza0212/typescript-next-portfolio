@@ -5,7 +5,37 @@ import FormButton from "@/components/Button/form-button";
 import BaseLayout from "@/components/Layouts/base-layout";
 import RatingSelect from "@/components/Rating/rating-select";
 
+type Feedback = {
+  commentNumber: number;
+  text: string;
+  rating: number;
+};
+
+const baseFeedback: Feedback[] = [
+  {
+    commentNumber: 1,
+    text: "This is a great product",
+    rating: 9,
+  },
+  {
+    commentNumber: 2,
+    text: "This is a bad product",
+    rating: 1,
+  },
+  {
+    commentNumber: 3,
+    text: "This is an awesom product",
+    rating: 10,
+  },
+  {
+    commentNumber: 4,
+    text: "This is a terrible product",
+    rating: 2,
+  },
+];
+
 const FormPage = () => {
+  const [feedback, setFeedback] = useState<Feedback[]>(baseFeedback)
   const [text, setText] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [rating, setRating] = useState<number>(10);
@@ -20,12 +50,11 @@ const FormPage = () => {
     if (text === "") {
       setBtnDisabled(true);
 
-      setMessage('Please enter more than 10 letters.')
-    } else if (text !== '' && text.trim().length < 10) {
+      setMessage("Please enter more than 10 letters.");
+    } else if (text !== "" && text.trim().length < 10) {
       setBtnDisabled(true);
-      setMessage('Please enter more than 10 letters.')
-    }
-    else if (text !== '' && text.trim().length >= 10) {
+      setMessage("Please enter more than 10 letters.");
+    } else if (text !== "" && text.trim().length >= 10) {
       setBtnDisabled(false);
       setMessage(null);
     }
@@ -33,48 +62,20 @@ const FormPage = () => {
     setText(e.target.value);
   };
 
-
-  type Feedback = {
-    commentNumber: number;
-    text: string;
-    rating: number;
-  };
-
-  const baseFeedback: Feedback[] = [
-    {
-      commentNumber: 1,
-      text: "This is a great product",
-      rating: 9,
-    },
-    {
-      commentNumber: 2,
-      text: "This is a bad product",
-      rating: 1,
-    },
-    {
-      commentNumber: 3,
-      text: "This is an awesom product",
-      rating: 10,
-    },
-    {
-      commentNumber: 4,
-      text: "This is a terrible product",
-      rating: 2,
-    },
-  ];
-
-  const handleSubmit = (e : FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted!');
-    if(text.trim().length > 10) {
+    console.log("Form submitted!");
+    if (text.trim().length > 10) {
       const newFeedback = {
-        text : text,
-        rating : rating
-      }
-      console.log(newFeedback);
+        text: text,
+        rating: rating,
+        commentNumber: baseFeedback.length + 1,
+      };
+      baseFeedback.push(newFeedback);
+      console.log(baseFeedback);
+      setFeedback([...feedback, newFeedback]);
     }
-  }
-
+  };
 
   return (
     <BaseLayout>
@@ -117,11 +118,11 @@ const FormPage = () => {
           <h2>Feedback</h2>
           <h4>Comments: {baseFeedback.length}</h4>
           <ul>
-            {baseFeedback.map((feedback) => {
+            {feedback.map((feedbackItem) => {
               return (
-                <li key={`feedbackNum${feedback.commentNumber}`}>
-                  <p>{feedback.text}</p>
-                  <p>{feedback.rating}</p>
+                <li key={`feedbackNum${feedbackItem.commentNumber}`}>
+                  <p>{feedbackItem.text}</p>
+                  <p>{feedbackItem.rating}</p>
                 </li>
               );
             })}
