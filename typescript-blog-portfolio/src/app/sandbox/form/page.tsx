@@ -1,39 +1,12 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { baseFeedback, Feedback } from "../../../../feedback/base-feedbaack";
 import FormButton from "@/components/Button/form-button";
 import BaseLayout from "@/components/Layouts/base-layout";
 import RatingSelect from "@/components/Rating/rating-select";
 import FeedbackCard from "@/components/FeedbackCard/FeedbackCard";
-
-type Feedback = {
-  commentNumber: number;
-  text: string;
-  rating: number;
-};
-
-const baseFeedback: Feedback[] = [
-  {
-    commentNumber: 1,
-    text: "This is a great product",
-    rating: 9,
-  },
-  {
-    commentNumber: 2,
-    text: "This is a bad product",
-    rating: 1,
-  },
-  {
-    commentNumber: 3,
-    text: "This is an awesom product",
-    rating: 10,
-  },
-  {
-    commentNumber: 4,
-    text: "This is a terrible product",
-    rating: 2,
-  },
-];
 
 const FormPage = () => {
   const [feedback, setFeedback] = useState<Feedback[]>(baseFeedback)
@@ -71,7 +44,9 @@ const FormPage = () => {
         text: text,
         rating: rating,
         commentNumber: baseFeedback.length + 1,
+        id: uuidv4(),
       };
+      console.log(newFeedback.id);
       setFeedback([...feedback, newFeedback]);
     }
   };
