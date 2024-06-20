@@ -28,3 +28,10 @@
     top: -50px;
     left: -50px;
   }
+
+.close {
+    position: relative;
+    color: white;
+    float: right;
+    top: -5px;
+}
