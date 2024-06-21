@@ -15,6 +15,12 @@ const FormPage = () => {
   const [rating, setRating] = useState<number>(10);
   const [message, setMessage] = useState<string | null>(null);
 
+  const deleteFeedbackItem = (feedbackItem : Feedback) => {
+    // setFeedback(feedback.filter((item : Feedback) => item.id !== feedbackItem.id))
+    console.log(feedbackItem)
+
+
+  }
   const unusedButton =
     "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
   const disabledButton =
@@ -95,7 +101,7 @@ const FormPage = () => {
             {feedback.map((feedbackItem) => {
               return (
                 <li key={`feedbackNum${feedbackItem.commentNumber}`}>
-                  <FeedbackCard feedback={feedbackItem} />
+                  <FeedbackCard feedback={feedbackItem} deleteFeedback={deleteFeedbackItem}/>
                 </li>
               );
             })}

@@ -3,10 +3,10 @@ import { FaTimes } from 'react-icons/fa';
 import { Feedback } from '../../../feedback/base-feedbaack';
 
 
-const FeedbackCard = ({ feedback } : {feedback : Feedback}) => { 
+const FeedbackCard = ({ feedback, deleteFeedback } : {feedback : Feedback, deleteFeedback : () => void}) => { 
     return (
         <div className='max-w-lg mx-auto min-h-32 border m-6 px-8 py-4 rounded-lg bg-slate-200 text-black'>
-            <button className={styles.close} onClick={() => {console.log(feedback.id)}}>
+            <button className={styles.close} onClick={() => {deleteFeedback}}>
                 <FaTimes color='red'/>
             </button>
             <p className='px-4'>{feedback.text}</p>
