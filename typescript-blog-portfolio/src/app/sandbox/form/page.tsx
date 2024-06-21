@@ -15,21 +15,16 @@ const FormPage = () => {
   const [rating, setRating] = useState<number>(10);
   const [message, setMessage] = useState<string | null>(null);
 
-  const deleteFeedbackItem = (feedbackItem : Feedback) => {
-    // setFeedback(feedback.filter((item : Feedback) => item.id !== feedbackItem.id))
-    console.log(feedbackItem)
-
-
-  }
+  
   const unusedButton =
-    "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
+  "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
   const disabledButton =
-    "bg-gray-500 hover:bg-grey-700 text-white font-bold py-2 px-4 rounded";
-
+  "bg-gray-500 hover:bg-grey-700 text-white font-bold py-2 px-4 rounded";
+  
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (text === "") {
       setBtnDisabled(true);
-
+      
       setMessage("Please enter more than 10 letters.");
     } else if (text !== "" && text.trim().length < 10) {
       setBtnDisabled(true);
@@ -38,10 +33,10 @@ const FormPage = () => {
       setBtnDisabled(false);
       setMessage(null);
     }
-
+    
     setText(e.target.value);
   };
-
+  
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted!");
@@ -56,7 +51,11 @@ const FormPage = () => {
       setFeedback([...feedback, newFeedback]);
     }
   };
-
+  
+  const deleteFeedbackItem = ({feedback, feedbackItem} : { feedback : Feedback[], feedbackItem : Feedback }) => () => {
+    setFeedback(feedback.filter((item : Feedback) => item.id !== feedbackItem.id))
+  }
+  
   return (
     <BaseLayout>
       <div>
@@ -101,7 +100,7 @@ const FormPage = () => {
             {feedback.map((feedbackItem) => {
               return (
                 <li key={`feedbackNum${feedbackItem.commentNumber}`}>
-                  <FeedbackCard feedback={feedbackItem} deleteFeedback={deleteFeedbackItem}/>
+                  <FeedbackCard feedbackItem={feedbackItem} handleClick={deleteFeedbackItem({feedback, feedbackItem})}/>
                 </li>
               );
             })}
