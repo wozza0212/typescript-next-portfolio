@@ -7,24 +7,24 @@ import FormButton from "@/components/Button/form-button";
 import BaseLayout from "@/components/Layouts/base-layout";
 import RatingSelect from "@/components/Rating/rating-select";
 import FeedbackCard from "@/components/FeedbackCard/FeedbackCard";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FormPage = () => {
-  const [feedback, setFeedback] = useState<Feedback[]>(baseFeedback)
+  const [feedback, setFeedback] = useState<Feedback[]>(baseFeedback);
   const [text, setText] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [rating, setRating] = useState<number>(10);
   const [message, setMessage] = useState<string | null>(null);
 
-  
   const unusedButton =
-  "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
+    "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
   const disabledButton =
-  "bg-gray-500 hover:bg-grey-700 text-white font-bold py-2 px-4 rounded";
-  
+    "bg-gray-500 hover:bg-grey-700 text-white font-bold py-2 px-4 rounded";
+
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (text === "") {
       setBtnDisabled(true);
-      
+
       setMessage("Please enter more than 10 letters.");
     } else if (text !== "" && text.trim().length < 10) {
       setBtnDisabled(true);
@@ -33,34 +33,44 @@ const FormPage = () => {
       setBtnDisabled(false);
       setMessage(null);
     }
-    
+
     setText(e.target.value);
   };
-  
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+
+  const addFeedback = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted!");
     if (text.trim().length > 10) {
       const newFeedback = {
         text: text,
         rating: rating,
-        commentNumber: baseFeedback.length + 1,
+        commentNumber: feedback.length + 1,
         id: uuidv4(),
       };
       console.log(newFeedback.id);
       setFeedback([...feedback, newFeedback]);
     }
   };
-  
-  const deleteFeedbackItem = ({feedback, feedbackItem} : { feedback : Feedback[], feedbackItem : Feedback }) => () => {
-    setFeedback(feedback.filter((item : Feedback) => item.id !== feedbackItem.id))
-  }
-  
+
+  const deleteFeedbackItem =
+    ({
+      feedback,
+      feedbackItem,
+    }: {
+      feedback: Feedback[];
+      feedbackItem: Feedback;
+    }) =>
+    () => {
+      setFeedback(
+        feedback.filter((item: Feedback) => item.id !== feedbackItem.id)
+      );
+    };
+
   return (
     <BaseLayout>
       <div>
         <h1>Form Page</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={addFeedback}>
           <div>
             <input
               className="text-black"
@@ -97,11 +107,30 @@ const FormPage = () => {
           <h2>Feedback</h2>
           <h4>Comments: {feedback.length}</h4>
           <ul>
-            {feedback.map((feedbackItem) => {
+            {/* {feedback.map((feedbackItem) => {
               return (
                 <li key={`feedbackNum${feedbackItem.commentNumber}`}>
                   <FeedbackCard feedbackItem={feedbackItem} handleClick={deleteFeedbackItem({feedback, feedbackItem})}/>
                 </li>
+              );
+            })} */}
+            {feedback.map((feedbackItem) => {
+              return (
+                <AnimatePresence initial={false}>
+                  <motion.li
+                    key={`feedbackId${feedbackItem.id}`}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <FeedbackCard
+                      feedbackItem={feedbackItem}
+                      handleClick={deleteFeedbackItem({
+                        feedback,
+                        feedbackItem,
+                      })}
+                    />
+                  </motion.li>
+                </AnimatePresence>
               );
             })}
           </ul>
