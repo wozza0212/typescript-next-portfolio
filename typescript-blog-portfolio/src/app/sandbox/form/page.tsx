@@ -3,10 +3,7 @@
 import { FormEvent, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { baseFeedback, Feedback } from "../../../../feedback/base-feedbaack";
-import FormButton from "@/components/Button/form-button";
-import BaseLayout from "@/components/Layouts/base-layout";
-import RatingSelect from "@/components/Rating/rating-select";
-import FeedbackCard from "@/components/FeedbackCard/FeedbackCard";
+import { FormButton, BaseLayout, RatingSelect, FeedbackCard } from "@/components";  
 import { motion, AnimatePresence } from "framer-motion";
 
 const FormPage = () => {
@@ -116,9 +113,10 @@ const FormPage = () => {
             })} */}
             {feedback.map((feedbackItem) => {
               return (
-                <AnimatePresence initial={false}>
+                <AnimatePresence>
                   <motion.li
                     key={`feedbackId${feedbackItem.id}`}
+                    initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
