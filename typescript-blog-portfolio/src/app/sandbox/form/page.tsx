@@ -95,7 +95,7 @@ const FormPage = () => {
         </form>
         <div>
           <h2>Feedback</h2>
-          <h4>Comments: {baseFeedback.length}</h4>
+          <h4>Comments: {feedback.length}</h4>
           <ul>
             {feedback.map((feedbackItem) => {
               return (
