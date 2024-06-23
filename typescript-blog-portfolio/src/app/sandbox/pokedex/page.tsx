@@ -1,46 +1,43 @@
+"use client";
 import { BaseLayout } from "@/components";
-import { PokemonClient } from "pokenode-ts";
-const Pokedex = async () => {
-  const api = new PokemonClient();
-  const getPokemonName = async () => {
-    try {
-      const pokemonData = await api.getPokemonByName("pikachu");
-      return pokemonData.name;
-    } catch (error) {
-      console.error(error);
-    }
+import PokedexComponent from "@/components/Pokedex/pokedex";
+import { useState } from "react";
+
+const Pokedex = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [text, setText] = useState<string>("pikachu");
+  const [pokemonName, setPokemonName] = useState<string>("pikachu");
+
+  const searchPokemon = async () => {
+    e.preventDefault();
+    console.log("searching for pokemon");
+    setPokemonName(text);
   };
-  const getPokemonData = async () => {
-    try {
-      const pokemonData = await api.getPokemonByName("mew");
-      const pokemonStats = {
-        name: pokemonData.name,
-        height: pokemonData.height,
-        weight: pokemonData.weight,
-        types: pokemonData.types,
-        number: pokemonData.id,
-      };
-      return pokemonStats;
-    } catch (error) {
-      console.error(error);
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (text === "") {
+      setPokemonName("pikachu");
+    } else {
+      setPokemonName(text);
     }
+    setText(e.target.value);
   };
-  const pikachuStats = await getPokemonData();
-  console.log(pikachuStats?.types)
-  pikachuStats?.types.map((type) => console.log(type.type.name));
-  
   return (
     <BaseLayout>
-      <div>
-        <h1>Pokedex</h1>
-        <h2>Name: {pikachuStats?.name}</h2>
-        <h2>Height: {pikachuStats?.height}</h2>
-        <h2>Weight: {pikachuStats?.weight}</h2>
-        <h2>Number: {pikachuStats?.number}</h2>
-        <h2>Type(s): {pikachuStats?.types.map((type) => `${type.type.name} `)}</h2>
-      </div>
+      <h1>Pokedex</h1>
+      <form onSubmit={searchPokemon}>
+        <div>
+          <input
+            className="text-black"
+            type="text"
+            onChange={handleTextChange}
+            placeholder="Enter Pokemon Name"
+            value={text}
+          ></input>
+        </div>
+      </form>
+
+      <PokedexComponent pokemonName={pokemonName}/>
     </BaseLayout>
   );
 };
-
 export default Pokedex;
