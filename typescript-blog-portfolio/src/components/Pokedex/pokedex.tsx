@@ -1,3 +1,4 @@
+'use client';
 import { PokemonClient } from "pokenode-ts";
 import Image from "next/image";
 const PokedexComponent = async ({pokemonName} : {pokemonName : string}) => {
@@ -19,6 +20,8 @@ const PokedexComponent = async ({pokemonName} : {pokemonName : string}) => {
     }
   };
   const pokemonStats = await getPokemonData();
+
+
 
   return (
     <div>
