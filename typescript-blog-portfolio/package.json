@@ -15,6 +15,7 @@
     "axios-cache-interceptor": "^1.5.3",
     "framer-motion": "^11.2.11",
     "next": "14.2.3",
+    "pokeapi-typescript": "^2.1.0",
     "pokenode-ts": "^1.20.0",
     "react": "^18",
     "react-dom": "^18",
