@@ -13,18 +13,21 @@ type PokemonData = {
   sprite: string;
 };
 
+const PikachuStats = {
+  id: 25,
+  name: "pikachu",
+  height: 4,
+  weight: 60,
+  types: ["electric"],
+  sprite:
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+};
+
 const PokedexComp = () => {
   const unusedButton =
     "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
-  const [pokemon, setPokemon] = useState("charmeleon");
-  const [pokemonData, setPokemonData] = useState<PokemonData>({
-    id: 0,
-    name: "",
-    height: 0,
-    weight: 0,
-    types: [],
-    sprite: "",
-  });
+  const [pokemon, setPokemon] = useState("pikachu");
+  const [pokemonData, setPokemonData] = useState<PokemonData>(PikachuStats);
   const [text, setText] = useState("");
 
   useEffect(() => {
@@ -45,7 +48,7 @@ const PokedexComp = () => {
   const searchPokemon = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setPokemon(text);
-  }
+  };
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
