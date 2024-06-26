@@ -1,9 +1,9 @@
-"use client";
 
 import { FormEvent, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { baseFeedback, Feedback } from "../../../../feedback/base-feedbaack";
-import { FormButton, BaseLayout, RatingSelect, FeedbackCard } from "@/components";  
+import { FormButton, BaseLayout, FeedbackCard } from "@/components"; 
+import RatingSelect from "@/components/Rating/rating-select"; 
 import { motion, AnimatePresence } from "framer-motion";
 
 const FormPage = () => {

@@ -9,6 +9,9 @@ const Sandbox = () => {
         <Link href='/sandbox/form'>
         <h1>Form</h1>
         </Link>
+        <Link href='/sandbox/pokedex'>
+        <h1>Pokedex</h1>
+        </Link>
       </div>
     </BaseLayout>
   );
