@@ -40,21 +40,11 @@ const PokedexComp = () => {
       console.log(pokemonData);
       setPokemonData(newPokemonData);
     });
-  }, []);
+  }, [pokemon]);
 
   const searchPokemon = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    PokeAPI.Pokemon.resolve(text).then((result) => {
-      const newPokemonData = {
-        id: result.id,
-        name: result.name,
-        height: result.height,
-        weight: result.weight,
-        types: result.types.map((type) => type.type.name),
-        sprite: result.sprites.front_default,
-      };
-      setPokemonData(newPokemonData);
-    });
+    setPokemon(text);
   }
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
