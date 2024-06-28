@@ -11,7 +11,7 @@ type PokemonData = {
   weight: number;
   types: string[]; // Update the type to string[]
   sprite: string;
-  evolvesFrom : string | null
+  evolvesFrom: string | null;
 };
 
 const PikachuStats = {
@@ -22,7 +22,7 @@ const PikachuStats = {
   types: ["electric"],
   sprite:
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
-  evolvesFrom : null,
+  evolvesFrom: null,
 };
 
 const PokedexComp = () => {
@@ -32,13 +32,16 @@ const PokedexComp = () => {
   const [pokemonData, setPokemonData] = useState<PokemonData>(PikachuStats);
   const [text, setText] = useState("");
   const [searchError, setSearchError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setSearchError(false);
       try {
         const pokemonNew = await PokeAPI.Pokemon.resolve(pokemon).then(
           async (result) => {
-            const evolvesFrom = await PokeAPI.PokemonSpecies.fetch(result.id)
+            setIsLoading(true)
+            const evolvesFrom = await PokeAPI.PokemonSpecies.fetch(result.id);
             const newPokemonData = {
               id: result.id,
               name: result.name,
@@ -46,12 +49,12 @@ const PokedexComp = () => {
               weight: result.weight,
               types: result.types.map((type) => type.type.name),
               sprite: result.sprites.front_default,
-              evolvesFrom : evolvesFrom.evolves_from_species?.name
+              evolvesFrom: evolvesFrom.evolves_from_species?.name,
             };
-            setSearchError(false);
             return newPokemonData;
           }
         );
+        setIsLoading(false);
         setPokemonData(pokemonNew);
       } catch (error) {
         setSearchError(true);
@@ -85,7 +88,12 @@ const PokedexComp = () => {
           </FormButton>
         </form>
       </div>
-      {!searchError ? (
+      {isLoading && (
+        <div>
+          <h1>Page Loading</h1>
+        </div>
+      )}
+      {!searchError && !isLoading &&
         <div>
           <h1>Pokedex</h1>
           <h2>ID: {pokemonData.id}</h2>
@@ -99,14 +107,16 @@ const PokedexComp = () => {
             width={200}
             height={200}
           />
-          <h2>Evolves From: {pokemonData.evolvesFrom ? pokemonData.evolvesFrom : 'Base form'}</h2>
+          <div>
+            {pokemonData.evolvesFrom ? <h2>Evolves From: {pokemonData.evolvesFrom}</h2> : 'Base Form'}
+          </div>
         </div>
-        
-      ) : (
+}
+      {searchError &&
         <div>
           <h2>Error fetching data</h2>
         </div>
-      )}
+      }
     </div>
   );
 };
