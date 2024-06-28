@@ -32,6 +32,7 @@ const PokedexComp = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      try{
     const pokemonNew = await PokeAPI.Pokemon.resolve(pokemon).then((result) => {
       const newPokemonData = {
         id: result.id,
@@ -44,6 +45,9 @@ const PokedexComp = () => {
       return newPokemonData
     });
     setPokemonData(pokemonNew);
+  } catch (error) {
+    setPokemonData(PikachuStats)
+  }
   }
   fetchData()
   }, [pokemon]);
