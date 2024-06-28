@@ -31,7 +31,8 @@ const PokedexComp = () => {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    PokeAPI.Pokemon.resolve(pokemon).then((result) => {
+    const fetchData = async () => {
+    const pokemonNew = await PokeAPI.Pokemon.resolve(pokemon).then((result) => {
       const newPokemonData = {
         id: result.id,
         name: result.name,
@@ -39,10 +40,12 @@ const PokedexComp = () => {
         weight: result.weight,
         types: result.types.map((type) => type.type.name),
         sprite: result.sprites.front_default,
-      };
-      console.log(pokemonData);
-      setPokemonData(newPokemonData);
+      }
+      return newPokemonData
     });
+    setPokemonData(pokemonNew);
+  }
+  fetchData()
   }, [pokemon]);
 
   const searchPokemon = (e: FormEvent<HTMLFormElement>) => {
