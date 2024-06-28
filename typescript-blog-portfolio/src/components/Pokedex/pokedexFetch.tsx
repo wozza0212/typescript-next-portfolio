@@ -1,5 +1,5 @@
 "use Client";
-import { BaseLayout, FormButton } from "@/components";
+import { FormButton } from "@/components";
 import PokeAPI from "pokeapi-typescript";
 import Image from "next/image";
 import { useEffect, useState, FormEvent } from "react";
