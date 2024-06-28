@@ -44,7 +44,7 @@ const PokedexComp = () => {
               types: result.types.map((type) => type.type.name),
               sprite: result.sprites.front_default,
             };
-            setSearchError(false)
+            setSearchError(false);
             return newPokemonData;
           }
         );
@@ -81,7 +81,7 @@ const PokedexComp = () => {
           </FormButton>
         </form>
       </div>
-      {!searchError && (
+      {!searchError ? (
         <div>
           <h1>Pokedex</h1>
           <h2>ID: {pokemonData.id}</h2>
@@ -96,8 +96,7 @@ const PokedexComp = () => {
             height={200}
           />
         </div>
-      )}
-      {searchError && (
+      ) : (
         <div>
           <h2>Error fetching data</h2>
         </div>
