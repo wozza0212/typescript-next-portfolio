@@ -29,27 +29,31 @@ const PokedexComp = () => {
   const [pokemon, setPokemon] = useState("pikachu");
   const [pokemonData, setPokemonData] = useState<PokemonData>(PikachuStats);
   const [text, setText] = useState("");
+  const [searchError, setSearchError] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      try{
-    const pokemonNew = await PokeAPI.Pokemon.resolve(pokemon).then((result) => {
-      const newPokemonData = {
-        id: result.id,
-        name: result.name,
-        height: result.height,
-        weight: result.weight,
-        types: result.types.map((type) => type.type.name),
-        sprite: result.sprites.front_default,
+      try {
+        const pokemonNew = await PokeAPI.Pokemon.resolve(pokemon).then(
+          (result) => {
+            const newPokemonData = {
+              id: result.id,
+              name: result.name,
+              height: result.height,
+              weight: result.weight,
+              types: result.types.map((type) => type.type.name),
+              sprite: result.sprites.front_default,
+            };
+            setSearchError(false)
+            return newPokemonData;
+          }
+        );
+        setPokemonData(pokemonNew);
+      } catch (error) {
+        setSearchError(true);
       }
-      return newPokemonData
-    });
-    setPokemonData(pokemonNew);
-  } catch (error) {
-    setPokemonData(PikachuStats)
-  }
-  }
-  fetchData()
+    };
+    fetchData();
   }, [pokemon]);
 
   const searchPokemon = (e: FormEvent<HTMLFormElement>) => {
@@ -77,18 +81,27 @@ const PokedexComp = () => {
           </FormButton>
         </form>
       </div>
-      <h1>Pokedex</h1>
-      <h2>ID: {pokemonData.id}</h2>
-      <h2>Name: {pokemonData.name}</h2>
-      <h2>Height: {pokemonData.height}</h2>
-      <h2>weight: {pokemonData.weight}</h2>
-      <h2>Type(s): {pokemonData.types.map((type) => `${type}, `)}</h2>
-      <Image
-        src={`${pokemonData.sprite}`}
-        alt={`${pokemonData.name} sprite`}
-        width={200}
-        height={200}
-      />
+      {!searchError && (
+        <div>
+          <h1>Pokedex</h1>
+          <h2>ID: {pokemonData.id}</h2>
+          <h2>Name: {pokemonData.name}</h2>
+          <h2>Height: {pokemonData.height}</h2>
+          <h2>weight: {pokemonData.weight}</h2>
+          <h2>Type(s): {pokemonData.types.map((type) => `${type}, `)}</h2>
+          <Image
+            src={`${pokemonData.sprite}`}
+            alt={`${pokemonData.name} sprite`}
+            width={200}
+            height={200}
+          />
+        </div>
+      )}
+      {searchError && (
+        <div>
+          <h2>Error fetching data</h2>
+        </div>
+      )}
     </div>
   );
 };
