@@ -25,8 +25,6 @@ const PikachuStats = {
 };
 
 const PokedexComp = () => {
-  const unusedButton =
-    "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
   const [pokemon, setPokemon] = useState("pikachu");
   const [pokemonData, setPokemonData] = useState<PokemonData>(PikachuStats);
   const [text, setText] = useState("");
@@ -82,7 +80,7 @@ const PokedexComp = () => {
             placeholder="Write a review..."
             value={text}
           ></input>
-          <FormButton type="submit" version={`${unusedButton}`}>
+          <FormButton type="submit" version={`primaryButton`}>
             Search
           </FormButton>
         </form>

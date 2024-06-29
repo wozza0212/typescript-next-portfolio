@@ -13,11 +13,6 @@ const FormPage = () => {
   const [rating, setRating] = useState<number>(10);
   const [message, setMessage] = useState<string | null>(null);
 
-  const unusedButton =
-    "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
-  const disabledButton =
-    "bg-gray-500 hover:bg-grey-700 text-white font-bold py-2 px-4 rounded";
-
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (text === "") {
       setBtnDisabled(true);
@@ -80,7 +75,7 @@ const FormPage = () => {
               {message && <p>{message}</p>}
               {btnDisabled ? (
                 <FormButton
-                  version={`${disabledButton}`}
+                  version={`disabledButton`}
                   type={"submit"}
                   isDisabled={btnDisabled}
                 >
@@ -88,7 +83,7 @@ const FormPage = () => {
                 </FormButton>
               ) : (
                 <FormButton
-                  version={`${unusedButton}`}
+                  version={`primaryButton`}
                   type={"submit"}
                   isDisabled={btnDisabled}
                 >
