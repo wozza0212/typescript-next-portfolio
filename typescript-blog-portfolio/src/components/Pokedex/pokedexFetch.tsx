@@ -1,4 +1,3 @@
-"use Client";
 import { FormButton } from "@/components";
 import PokeAPI from "pokeapi-typescript";
 import Image from "next/image";
