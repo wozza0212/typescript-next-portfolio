@@ -77,7 +77,7 @@ const PokedexComp = () => {
             className="text-black"
             type="text"
             onChange={handleTextChange}
-            placeholder="Write a review..."
+            placeholder="Enter Pokemon Name..."
             value={text}
           ></input>
           <FormButton type="submit" version={`primaryButton`}>
