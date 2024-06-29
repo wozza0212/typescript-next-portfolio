@@ -1,4 +1,4 @@
-
+'use client'
 import { FormEvent, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { baseFeedback, Feedback } from "../../../../feedback/base-feedbaack";
