@@ -30,6 +30,8 @@ const PokedexComp = () => {
   const [text, setText] = useState("");
   const [searchError, setSearchError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [btnDisabled, setBtnDisabled] = useState(true);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,6 +68,9 @@ const PokedexComp = () => {
   };
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (text === '') {
+      setBtnDisabled(true);
+    }
     setText(e.target.value);
   };
   return (
@@ -80,9 +85,15 @@ const PokedexComp = () => {
             placeholder="Enter Pokemon Name..."
             value={text}
           ></input>
-          <FormButton type="submit" version={`primaryButton`}>
+          { !btnDisabled ? 
+            <FormButton type="submit" version={`primaryButton`}>
             Search
-          </FormButton>
+          </FormButton> 
+          :
+          <FormButton type="submit" version={`disabledButton`} isDisabled={btnDisabled}>
+            Search
+          </FormButton> 
+}
         </form>
       </div>
       {isLoading && (
