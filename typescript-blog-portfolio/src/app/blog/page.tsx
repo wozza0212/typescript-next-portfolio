@@ -7,11 +7,13 @@ const Blog: NextPage = () => {
   const blogs = getBlogs();
   return (
     <BaseLayout>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <h1 className="text-2xl font-bold">Blog</h1>
       <div>
-        <h1>Blog</h1>
         <p>Blog page content</p>
         <BlogList blogs={blogs} />
       </div>
+      </main>
     </BaseLayout>
   );
 };
