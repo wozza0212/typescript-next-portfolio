@@ -1,0 +1,5 @@
+.resultSpan {
+    display: flex;
+    border: solid red 1px;
+    margin: 8px
+}
