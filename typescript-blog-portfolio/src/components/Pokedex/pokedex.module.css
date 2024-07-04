@@ -3,3 +3,18 @@
     border: solid red 1px;
     margin: 8px
 }
+
+.pokemonCard {
+    border: solid 5px yellow;
+    width: 20em;
+    padding: 10px;
+    margin: 10px 2px 10px 2px;
+    border-radius: 4%;
+}
+
+.spriteBorder {
+    border: solid 1px whitesmoke;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
