@@ -1,10 +1,24 @@
 .resultSpan {
+    background-color: lightgrey;
     display: flex;
-    border: solid red 1px;
-    margin: 8px
+    border: solid black 1px;
+    margin: 8px;
+    height: 1.75em;
+    font-size: large;
+    align-items: center;
+}
+
+.pokemonName {
+    font-size: x-large;
+}
+
+.pokemonName::first-letter {
+    text-transform: capitalize;
 }
 
 .pokemonCard {
+    color: black;
+    background-color: darkgray;
     border: solid 5px yellow;
     width: 20em;
     padding: 10px;
@@ -13,8 +27,21 @@
 }
 
 .spriteBorder {
+    background-color: black;
     border: solid 1px whitesmoke;
     display: flex;
     justify-content: center;
     margin: 5px;
+}
+
+.cardInfo {
+    margin-left: auto;
+    padding-right: 5px;
+}
+
+.pokedexSearchBar {
+    height: 2.25em;
+    color: black;
+    font-size: large;
+
 }
