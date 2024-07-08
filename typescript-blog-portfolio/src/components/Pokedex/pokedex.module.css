@@ -26,6 +26,10 @@
     border-radius: 4%;
 }
 
+.cardHeading {
+    padding-left: 4px;
+}
+
 .spriteBorder {
     background-color: black;
     border: solid 1px whitesmoke;
