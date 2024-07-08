@@ -79,7 +79,7 @@ const PokedexComp = () => {
       <div>
         <form onSubmit={searchPokemon}>
           <input
-            className="text-black"
+            className={styles.pokedexSearchBar}
             type="text"
             onChange={handleTextChange}
             placeholder="Enter Pokemon Name..."
@@ -108,43 +108,46 @@ const PokedexComp = () => {
       {!searchError && !isLoading && (
         <div>
           <h1>Pokedex Results</h1>
-          <span className={styles.resultSpan}>
-            <h2>ID: </h2>
-            <h2> {pokemonData.id}</h2>
-          </span>
-          <span className={styles.resultSpan}>
-            <h2>Name: </h2>
-            <h2>{pokemonData.name}</h2>
-          </span>
-          <span className={styles.resultSpan}>
-            <h2>Height:</h2>
-            <h2> {pokemonData.height}</h2>
-          </span>
-          <span className={styles.resultSpan}>
-            <h2>weight:</h2>
-            <h2> {pokemonData.weight}</h2>
-          </span>
-          <span className={styles.resultSpan}>
-            <h2>Type(s):</h2>
-            <h2> {pokemonData.types.join(', ')}</h2>
-          </span>
-          <Image
-            src={`${pokemonData.sprite}`}
-            alt={`${pokemonData.name} sprite`}
-            width={200}
-            height={200}
-          />
-          <div>
-            {pokemonData.evolvesFrom ? (
-              <span className={styles.resultSpan}>
-                <h2>Evolves From:</h2>
-                <h2> {pokemonData.evolvesFrom}</h2>
-              </span>
-            ) : (
-              <span>
-                <h2>Base Form</h2>
-              </span>
-            )}
+          <div className={styles.pokemonCard}>
+            <span className={styles.resultSpan}>
+              <h2 className={styles.pokemonName}>{pokemonData.name}</h2>
+            </span>
+            <div className={styles.spriteBorder}>
+              <Image
+                src={`${pokemonData.sprite}`}
+                alt={`${pokemonData.name} sprite`}
+                width={200}
+                height={200}
+              />
+            </div>
+            <span className={styles.resultSpan}>
+              <h2 className={styles.cardHeading}>ID: </h2>
+              <p className={styles.cardInfo}>&nbsp;{pokemonData.id}</p>
+            </span>
+            <span className={styles.resultSpan}>
+            <h2 className={styles.cardHeading}>Height:</h2>
+            <p className={styles.cardInfo}>&nbsp;{pokemonData.height * 10}cm</p>
+            </span>
+            <span className={styles.resultSpan}>
+            <h2 className={styles.cardHeading}>Weight:</h2>
+            <p className={styles.cardInfo}>&nbsp;{pokemonData.weight}Kg's</p>
+            </span>
+            <span className={styles.resultSpan}>
+            <h2 className={styles.cardHeading}>Type(s):</h2>
+            <p className={styles.cardInfo}>&nbsp;{pokemonData.types.join(", ")}</p>
+            </span>
+            <div>
+              {pokemonData.evolvesFrom ? (
+                <span className={styles.resultSpan}>
+                  <h2 className={styles.cardHeading}>Evolves From:</h2>
+                  <p className={styles.cardInfo}>&nbsp;{pokemonData.evolvesFrom}</p>
+                </span>
+              ) : (
+                <span className={styles.resultSpan}>
+                  <h2 className={styles.cardHeading}>Base Form</h2>
+                </span>
+              )}
+            </div>
           </div>
         </div>
       )}
