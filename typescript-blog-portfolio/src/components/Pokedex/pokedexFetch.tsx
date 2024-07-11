@@ -3,6 +3,7 @@ import PokeAPI from "pokeapi-typescript";
 import Image from "next/image";
 import { useEffect, useState, FormEvent } from "react";
 import styles from "./pokedex.module.css";
+import PokemonFeedback from "./pokemonFeedback";
 
 type PokemonData = {
   id: number;
@@ -156,6 +157,9 @@ const PokedexComp = () => {
           <h2>Error fetching data</h2>
         </div>
       )}
+      <div>
+        <PokemonFeedback />
+      </div>
     </div>
   );
 };
