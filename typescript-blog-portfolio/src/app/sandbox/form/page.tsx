@@ -1,10 +1,12 @@
 "use client";
 import { FormEvent, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { baseFeedback, Feedback } from "../../../../feedback/base-feedbaack";
+import { baseFeedback, Feedback } from "../../../../feedback/base-feedback";
 import { FormButton, BaseLayout, FeedbackCard } from "@/components";
 import RatingSelect from "@/components/Rating/rating-select";
 import { motion, AnimatePresence } from "framer-motion";
+import { FeedbackProvider } from "@/context/FeedbackContext";
+import FeedbackList from "@/components/Feedback/FeedbackList/FeedbackList";
 
 const FormPage = () => {
   const [feedback, setFeedback] = useState<Feedback[]>(baseFeedback);
@@ -43,83 +45,86 @@ const FormPage = () => {
   };
 
   const deleteFeedbackItem =
-    ({
-      feedback,
-      feedbackItem,
-    }: {
-      feedback: Feedback[];
-      feedbackItem: Feedback;
-    }) =>
-    () => {
-      setFeedback(
-        feedback.filter((item: Feedback) => item.id !== feedbackItem.id)
-      );
-    };
+  ({
+    feedback,
+    feedbackItem,
+  }: {
+    feedback: Feedback[];
+    feedbackItem: Feedback;
+  }) =>
+  () => {
+    setFeedback(
+      feedback.filter((item: Feedback) => item.id !== feedbackItem.id)
+    );
+  };
 
   return (
     <BaseLayout>
-      <div>
-        <h1>Form Page</h1>
-        <form onSubmit={addFeedback}>
-          <div>
-            <input
-              className="text-black"
-              type="text"
-              onChange={handleTextChange}
-              placeholder="Write a review..."
-              value={text}
-            ></input>
-            <div style={{ paddingTop: "4px" }}>
-              {message && <p>{message}</p>}
-              {btnDisabled ? (
-                <FormButton
-                  version={`disabledButton`}
-                  type={"submit"}
-                  isDisabled={btnDisabled}
-                >
-                  Submit
-                </FormButton>
-              ) : (
-                <FormButton
-                  version={`primaryButton`}
-                  type={"submit"}
-                  isDisabled={btnDisabled}
-                >
-                  Submit
-                </FormButton>
-              )}
-            </div>
-          </div>
-
-          <RatingSelect select={(rating: number) => setRating(rating)} />
-        </form>
+      <FeedbackProvider>
         <div>
-          <h2>Feedback</h2>
-          <h4>Comments: {feedback.length}</h4>
-          <ul>
-            {feedback.map((feedbackItem) => {
-              return (
-                <AnimatePresence key={`feedbackId${feedbackItem.id}`}>
-                  <motion.li
-                    key={`feedbackId${feedbackItem.id}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+          <h1>Form Page</h1>
+          <form onSubmit={addFeedback}>
+            <div>
+              <input
+                className="text-black"
+                type="text"
+                onChange={handleTextChange}
+                placeholder="Write a review..."
+                value={text}
+              ></input>
+              <div style={{ paddingTop: "4px" }}>
+                {message && <p>{message}</p>}
+                {btnDisabled ? (
+                  <FormButton
+                    version={`disabledButton`}
+                    type={"submit"}
+                    isDisabled={btnDisabled}
                   >
-                    <FeedbackCard
-                      feedbackItem={feedbackItem}
-                      handleClick={deleteFeedbackItem({
-                        feedback,
-                        feedbackItem,
-                      })}
-                    />
-                  </motion.li>
-                </AnimatePresence>
-              );
-            })}
-          </ul>
+                    Submit
+                  </FormButton>
+                ) : (
+                  <FormButton
+                    version={`primaryButton`}
+                    type={"submit"}
+                    isDisabled={btnDisabled}
+                  >
+                    Submit
+                  </FormButton>
+                )}
+              </div>
+            </div>
+
+            <RatingSelect select={(rating: number) => setRating(rating)} />
+          </form>
+          <div>
+            <h2>Feedback</h2>
+            <h4>Comments: {feedback.length}</h4>
+            <FeedbackList feedback={feedback}/>
+            {/* <ul>
+              {feedback.map((feedbackItem) => {
+                return (
+                  <AnimatePresence key={`feedbackId${feedbackItem.id}`}>
+                    <motion.li
+                      key={`feedbackId${feedbackItem.id}`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <FeedbackCard
+                        feedbackItem={feedbackItem}
+                        handleClick={deleteFeedbackItem({
+                          feedback,
+                          feedbackItem,
+                        })}
+                      />
+                    </motion.li>
+                  </AnimatePresence>
+                );
+              })}
+            </ul> */}
+          </div>
         </div>
-      </div>
+      </FeedbackProvider>
     </BaseLayout>
   );
 };
