@@ -14,15 +14,15 @@ const Home: NextPage<BlogPageProps> = () => {
   return (
     <BaseLayout>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <h1 className="text-6xl font-bold">Tech Lark</h1>
+        <h1 className="text-6xl font-bold">Tech Space</h1>
         <br />
         <div className="h-100 w-200 relative">
-          <Image 
-            src='/Images/Main/main-image.jpg'
+          <Image
+            src="/Images/Main/main-image.jpg"
             alt="Main Image"
             height={600}
             width={800}
-            />
+          />
         </div>
         <br />
         <div>

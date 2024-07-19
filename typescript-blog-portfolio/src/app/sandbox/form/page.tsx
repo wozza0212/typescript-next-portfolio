@@ -1,29 +1,25 @@
-'use client'
+"use client";
 import { FormEvent, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { baseFeedback, Feedback } from "../../../../feedback/base-feedbaack";
-import { FormButton, BaseLayout, FeedbackCard } from "@/components"; 
-import RatingSelect from "@/components/Rating/rating-select"; 
+import { FormButton, BaseLayout, FeedbackCard } from "@/components";
+import RatingSelect from "@/components/Rating/rating-select";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FormPage = () => {
   const [feedback, setFeedback] = useState<Feedback[]>(baseFeedback);
-  const [text, setText] = useState("");
+  const [text, setText] = useState<string>("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [rating, setRating] = useState<number>(10);
   const [message, setMessage] = useState<string | null>(null);
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (text === "") {
-      setBtnDisabled(true);
-
-      setMessage("Please enter more than 10 letters.");
-    } else if (text !== "" && text.trim().length < 10) {
+    if ((text !== "" && text.trim().length < 10) || text === "") {
       setBtnDisabled(true);
       setMessage("Please enter more than 10 letters.");
     } else if (text !== "" && text.trim().length >= 10) {
       setBtnDisabled(false);
-      setMessage(null);
+      setMessage("");
     }
 
     setText(e.target.value);
@@ -40,6 +36,8 @@ const FormPage = () => {
         id: uuidv4(),
       };
       console.log(newFeedback.id);
+      setText("");
+      setBtnDisabled(true);
       setFeedback([...feedback, newFeedback]);
     }
   };
@@ -99,16 +97,9 @@ const FormPage = () => {
           <h2>Feedback</h2>
           <h4>Comments: {feedback.length}</h4>
           <ul>
-            {/* {feedback.map((feedbackItem) => {
-              return (
-                <li key={`feedbackNum${feedbackItem.commentNumber}`}>
-                  <FeedbackCard feedbackItem={feedbackItem} handleClick={deleteFeedbackItem({feedback, feedbackItem})}/>
-                </li>
-              );
-            })} */}
             {feedback.map((feedbackItem) => {
               return (
-                <AnimatePresence>
+                <AnimatePresence key={`feedbackId${feedbackItem.id}`}>
                   <motion.li
                     key={`feedbackId${feedbackItem.id}`}
                     initial={{ opacity: 0 }}
