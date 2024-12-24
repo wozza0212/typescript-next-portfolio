@@ -1,6 +1,6 @@
 'use client';
 import { PokemonClient } from "pokenode-ts";
-import Image from "next/image";
+import Image from "next/legacy/image";
 const PokedexComponent = async ({pokemonName} : {pokemonName : string}) => {
   const api = new PokemonClient();
   const getPokemonData = async () => {
