@@ -1,64 +1,55 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link'
+import Image from 'next/image'
+import styles from './navbar.module.css'
 
 const NavBar = () => {
   return (
-    <nav className="w-screen items-center bg-white p-2">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-        <div className="flex items-center rtl:space-x-reverse">
-          <Link href="/" className="flex py-2 px-3 items-center rtl:space-x-reverse">
+    <nav className={styles.nav}>
+      <div className={styles.outerNavContainer}>
+        <div className={styles.navInnerLeft}>
+          <Link href='/' className={styles.navLogo}>
             <Image
-              src="/Images/NextLogo.png"
-              alt="Logo"
+              src='/Images/NextLogo.png'
+              alt='Logo'
               width={50}
               height={50}
             />
           </Link>
-          <ul className="flex items-center float-left ">
+          <ul className=''>
             <li>
-              <Link href="/sandbox">
-                <p className="py-2 px-3 block text-black hover:bg-gray-400 float-left">
-                  SandBox
-                </p>
+              <Link href='/sandbox'>
+                <p className={styles.navText}>SandBox</p>
               </Link>
             </li>
           </ul>
         </div>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="flex items-center justify-between">
+        <div className='hidden w-full md:block md:w-auto' id='navbar-default'>
+          <ul className={styles.navRightUl}>
             <li>
-              <Link href="/blog">
-                <p className="py-2 px-3 block text-black hover:bg-gray-400">
-                  Home
-                </p>
+              <Link href='/blog'>
+                <p className={styles.navText}>Home</p>
               </Link>
             </li>
             <li>
-              <Link href="/about">
-                <p className="py-2 px-3 block text-black hover:bg-gray-400">
-                  About
-                </p>
+              <Link href='/about'>
+                <p className={styles.navText}>About</p>
               </Link>
             </li>
             <li>
-              <Link href="/blog">
-                <p className="py-2 px-3 block text-black hover:bg-gray-400">
-                  Blog
-                </p>
+              <Link href='/blog'>
+                <p className={styles.navText}>Blog</p>
               </Link>
             </li>
             <li>
-              <Link href="/about">
-                <p className="py-2 px-3 block text-black hover:bg-gray-400">
-                  GitHub
-                </p>
+              <Link href='/about'>
+                <p className={styles.navText}>GitHub</p>
               </Link>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
