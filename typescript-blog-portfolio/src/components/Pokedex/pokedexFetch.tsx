@@ -1,6 +1,6 @@
 import { FormButton } from "@/components";
 import PokeAPI from "pokeapi-typescript";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useEffect, useState, FormEvent } from "react";
 import styles from "./pokedex.module.css";
 

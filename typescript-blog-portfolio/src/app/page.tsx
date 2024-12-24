@@ -1,6 +1,6 @@
 import BlogList from "@/components/Blog/blog-list";
 import BaseLayout from "@/components/Layouts/base-layout";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { getBlogs } from "../../lib/blogs";
 import { NextPage } from "next";
 import { Blog } from "../../interfaces/Blog";
