@@ -1,8 +1,14 @@
+'use client'
+import { useState } from 'react'
 import Link from 'next/link'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import styles from './navbar.module.css'
+import { IoMdArrowDropdown } from 'react-icons/io'
+//link to sandbox needs adding if cant work dropdown menu
 
 const NavBar = () => {
+  const [openMenu, setOpenMenu] = useState(false)
+
   return (
     <nav className={styles.nav}>
       <div className={styles.outerNavContainer}>
@@ -15,18 +21,46 @@ const NavBar = () => {
               height={50}
             />
           </Link>
-          <ul className=''>
-            <li>
-              <Link href='/sandbox'>
-                <p className={styles.navText}>SandBox</p>
-              </Link>
-            </li>
+          <ul className={styles.dropdown}>
+            <button>
+              <span>
+                <li className={styles.dropdownSpan}>
+                  <p>SandBox</p>
+                  <IoMdArrowDropdown
+                    style={{
+                      marginLeft: '8px',
+                      verticalAlign: 'middle',
+                      marginTop: '4',
+                    }}
+                  />
+                </li>
+              </span>
+            </button>
+            <div className={styles.dropdownContent}>
+              <ul>
+                <li>
+                  <Link href='/sandbox'>
+                    <p>Sandbox</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/sandbox/form'>
+                    <p>Form </p>
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/sandbox/pokedex'>
+                    <p>Pokedex</p>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </ul>
         </div>
         <div className='hidden w-full md:block md:w-auto' id='navbar-default'>
           <ul className={styles.navRightUl}>
             <li>
-              <Link href='/blog'>
+              <Link href='/'>
                 <p className={styles.navText}>Home</p>
               </Link>
             </li>
