@@ -5,9 +5,9 @@ image: /Images/BlogTitles/mdlogo.png
 date: '2022-05-20'
 ---
 
-**Advertisement :)**
+Advertisement :)
 
-- **[babelfish](https://github.com/nodeca/babelfish/)** - developer friendly
+[babelfish](https://github.com/nodeca/babelfish/) - developer friendly
   i18n with plurals support and easy syntax.
 
 You will like those projects!

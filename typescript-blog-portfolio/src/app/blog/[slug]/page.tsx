@@ -1,11 +1,10 @@
 import { Metadata, NextPage } from 'next/types';
-import PageLayout from '@/components/Layouts/page-layout';
 import { getAllBlogSlugs, getBlogBySlugWithMarkdown } from '../../../../lib/blogs';
 import { Blog } from '../../../../interfaces/Blog';
 import BaseLayout from '@/components/Layouts/base-layout';
 const css = {
     h: 'prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-h4:text-white prose-h5:text-white prose-h6:text-white',
-    p: 'prose-p:text-yellow'
+    p: 'prose-p:text-yellow prose-a:text-white',
 
 }
 
