@@ -17,8 +17,8 @@ const NavBar = () => {
             <Image
               src='/Images/NextLogo.png'
               alt='Logo'
-              width={50}
-              height={50}
+              width={40}
+              height={40}
             />
           </Link>
           <ul className={styles.dropdown}>
