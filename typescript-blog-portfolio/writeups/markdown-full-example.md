@@ -78,9 +78,10 @@ Unordered
 
 Ordered
 
-1. Lorem ipsum dolor sit amet
+1. <span class='span'>Lorem ipsum dolor sit amet</span>
 2. Consectetur adipiscing elit
 3. Integer molestie lorem at massa
+
 
 4. You can use sequential numbers...
 5. ...or keep all the numbers as `1.`
