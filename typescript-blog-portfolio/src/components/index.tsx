@@ -3,3 +3,4 @@ export { default as FormButton } from './Button/form-button';
 export { default as FeedbackCard } from './FeedbackCard/FeedbackCard';
 export { default as BaseLayout } from './Layouts/base-layout';
 export { default as BlogItem } from './Blog/blog-item';
+export { default as TutorialItem } from './Tutorials/tutorial-item';
