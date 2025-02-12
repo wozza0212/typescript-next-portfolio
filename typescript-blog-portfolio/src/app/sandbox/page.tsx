@@ -6,15 +6,15 @@ const Sandbox = () => {
     <BaseLayout>
       <div>
         <h1>Sandbox Page</h1>
-        <Link href='/sandbox/form'>
-        <h2>Form</h2>
+        <Link href="/sandbox/form">
+          <h2>Form</h2>
         </Link>
-        <Link href='/sandbox/pokedex'>
-        <h2>Pokedex</h2>
+        <Link href="/sandbox/pokedex">
+          <h2>Pokedex</h2>
         </Link>
       </div>
     </BaseLayout>
   );
 };
 
-export default Sandbox
+export default Sandbox;

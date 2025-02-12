@@ -8,16 +8,14 @@ type BlogPageProps = {
   blogs: Blog[];
 };
 
-export const fetchBlogs = async () : Promise<object> => {
-
+export const fetchBlogs = async (): Promise<object> => {
   const blogs = getBlogs();
-  console.log(blogs)
-  
-  return {
-    props: {blogs}
-  }
+  console.log(blogs);
 
-}
+  return {
+    props: { blogs },
+  };
+};
 
 const BlogList: NextPage<BlogPageProps> = async ({ blogs }) => {
   return (

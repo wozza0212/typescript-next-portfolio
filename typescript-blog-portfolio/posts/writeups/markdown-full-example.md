@@ -1,14 +1,14 @@
 ---
-title: 'Markdown Extensive Example'
+title: "Markdown Extensive Example"
 description: Learn how to write markdown
 image: /Images/BlogTitles/mdlogo.png
-date: '2022-05-20'
+date: "2022-05-20"
 ---
 
 Advertisement :)
 
 [babelfish](https://github.com/nodeca/babelfish/) - developer friendly
-  i18n with plurals support and easy syntax.
+i18n with plurals support and easy syntax.
 
 You will like those projects!
 
@@ -82,7 +82,6 @@ Ordered
 2. Consectetur adipiscing elit
 3. Integer molestie lorem at massa
 
-
 4. You can use sequential numbers...
 5. ...or keep all the numbers as `1.`
 
@@ -112,10 +111,10 @@ Syntax highlighting
 
 ```js
 var foo = function (bar) {
-  return bar++
-}
+  return bar++;
+};
 
-console.log(foo(5))
+console.log(foo(5));
 ```
 
 ## Tables
@@ -138,14 +137,14 @@ Right aligned columns
 
 [link text](http://dev.nodeca.com)
 
-[link with title](https://github.com/nodeca/babelfish/ 'title text!')
+[link with title](https://github.com/nodeca/babelfish/ "title text!")
 
 Autoconverted link https://github.com/nodeca/babelfish (enable linkify to see)
 
 ## Images
 
 ![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
 Like links, Images also have a footnote style syntax
 
@@ -153,4 +152,4 @@ Like links, Images also have a footnote style syntax
 
 With a reference later in the document defining the URL location:
 
-[id]: https://octodex.github.com/images/dojocat.jpg 'The Dojocat'
+[id]: https://octodex.github.com/images/dojocat.jpg "The Dojocat"
