@@ -55,7 +55,7 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  color: black
+  color: black;
 }
 
 .rating li:hover,
@@ -64,11 +64,11 @@
   color: black;
 }
 
-.rating input[type='radio'] {
+.rating input[type="radio"] {
   opacity: 0;
 }
 
-.rating [type='radio']:checked ~ label {
+.rating [type="radio"]:checked ~ label {
   background: #ff6a95;
   color: black;
 }

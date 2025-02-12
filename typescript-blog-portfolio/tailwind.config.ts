@@ -14,15 +14,12 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        yellow: '#facc15',
-        azure: '#F0FFFF',
-        pink: '#FF1493'
-      }
+        yellow: "#facc15",
+        azure: "#F0FFFF",
+        pink: "#FF1493",
+      },
     },
-    
   },
-  plugins: [
-    require('@tailwindcss/typography')
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };
 export default config;

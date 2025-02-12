@@ -8,16 +8,14 @@ type TutorialPageProps = {
   tutorials: Tutorial[];
 };
 
-export const fetchTutorials = async () : Promise<object> => {
-
+export const fetchTutorials = async (): Promise<object> => {
   const tutorials = getTutorials();
-  console.log(tutorials)
-  
-  return {
-    props: {tutorials}
-  }
+  console.log(tutorials);
 
-}
+  return {
+    props: { tutorials },
+  };
+};
 
 const TutorialList: NextPage<TutorialPageProps> = async ({ tutorials }) => {
   return (

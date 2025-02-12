@@ -51,7 +51,7 @@ const PokedexComp = () => {
               evolvesFrom: evolvesFrom.evolves_from_species?.name,
             };
             return newPokemonData;
-          }
+          },
         );
         setIsLoading(false);
         setPokemonData(pokemonNew);
@@ -125,22 +125,28 @@ const PokedexComp = () => {
               <p className={styles.cardInfo}>&nbsp;{pokemonData.id}</p>
             </span>
             <span className={styles.resultSpan}>
-            <h2 className={styles.cardHeading}>Height:</h2>
-            <p className={styles.cardInfo}>&nbsp;{pokemonData.height * 10}cm</p>
+              <h2 className={styles.cardHeading}>Height:</h2>
+              <p className={styles.cardInfo}>
+                &nbsp;{pokemonData.height * 10}cm
+              </p>
             </span>
             <span className={styles.resultSpan}>
-            <h2 className={styles.cardHeading}>Weight:</h2>
-            <p className={styles.cardInfo}>&nbsp;{pokemonData.weight}Kg's</p>
+              <h2 className={styles.cardHeading}>Weight:</h2>
+              <p className={styles.cardInfo}>&nbsp;{pokemonData.weight}Kg's</p>
             </span>
             <span className={styles.resultSpan}>
-            <h2 className={styles.cardHeading}>Type(s):</h2>
-            <p className={styles.cardInfo}>&nbsp;{pokemonData.types.join(", ")}</p>
+              <h2 className={styles.cardHeading}>Type(s):</h2>
+              <p className={styles.cardInfo}>
+                &nbsp;{pokemonData.types.join(", ")}
+              </p>
             </span>
             <div>
               {pokemonData.evolvesFrom ? (
                 <span className={styles.resultSpan}>
                   <h2 className={styles.cardHeading}>Evolves From:</h2>
-                  <p className={styles.cardInfo}>&nbsp;{pokemonData.evolvesFrom}</p>
+                  <p className={styles.cardInfo}>
+                    &nbsp;{pokemonData.evolvesFrom}
+                  </p>
                 </span>
               ) : (
                 <span className={styles.resultSpan}>

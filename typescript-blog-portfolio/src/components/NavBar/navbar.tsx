@@ -1,22 +1,22 @@
-'use client'
-import { useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/legacy/image'
-import styles from './navbar.module.css'
-import { IoMdArrowDropdown } from 'react-icons/io'
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/legacy/image";
+import styles from "./navbar.module.css";
+import { IoMdArrowDropdown } from "react-icons/io";
 //link to sandbox needs adding if cant work dropdown menu
 
 const NavBar = () => {
-  const [openMenu, setOpenMenu] = useState(false)
+  const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <nav className={styles.nav}>
       <div className={styles.outerNavContainer}>
         <div className={styles.navInnerLeft}>
-          <Link href='/' className={styles.navLogo}>
+          <Link href="/" className={styles.navLogo}>
             <Image
-              src='/Images/NextLogo.png'
-              alt='Logo'
+              src="/Images/NextLogo.png"
+              alt="Logo"
               width={40}
               height={40}
             />
@@ -28,9 +28,9 @@ const NavBar = () => {
                   <p>SandBox</p>
                   <IoMdArrowDropdown
                     style={{
-                      marginLeft: '8px',
-                      verticalAlign: 'middle',
-                      marginTop: '4',
+                      marginLeft: "8px",
+                      verticalAlign: "middle",
+                      marginTop: "4",
                     }}
                   />
                 </li>
@@ -39,17 +39,17 @@ const NavBar = () => {
             <div className={styles.dropdownContent}>
               <ul>
                 <li>
-                  <Link href='/sandbox'>
+                  <Link href="/sandbox">
                     <p>Sandbox</p>
                   </Link>
                 </li>
                 <li>
-                  <Link href='/sandbox/form'>
+                  <Link href="/sandbox/form">
                     <p>Form </p>
                   </Link>
                 </li>
                 <li>
-                  <Link href='/sandbox/pokedex'>
+                  <Link href="/sandbox/pokedex">
                     <p>Pokedex</p>
                   </Link>
                 </li>
@@ -57,25 +57,25 @@ const NavBar = () => {
             </div>
           </ul>
         </div>
-        <div className='hidden w-full md:block md:w-auto' id='navbar-default'>
+        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className={styles.navRightUl}>
             <li>
-              <Link href='/'>
+              <Link href="/">
                 <p className={styles.navText}>Home</p>
               </Link>
             </li>
             <li>
-              <Link href='/about'>
+              <Link href="/about">
                 <p className={styles.navText}>About</p>
               </Link>
             </li>
             <li>
-              <Link href='/blog'>
+              <Link href="/blog">
                 <p className={styles.navText}>Blog</p>
               </Link>
             </li>
             <li>
-              <Link href='/about'>
+              <Link href="/about">
                 <p className={styles.navText}>GitHub</p>
               </Link>
             </li>
@@ -83,7 +83,7 @@ const NavBar = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

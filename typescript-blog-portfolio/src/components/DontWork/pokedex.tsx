@@ -1,11 +1,11 @@
-'use client';
+"use client";
 import { PokemonClient } from "pokenode-ts";
 import Image from "next/legacy/image";
-const PokedexComponent = async ({pokemonName} : {pokemonName : string}) => {
+const PokedexComponent = async ({ pokemonName }: { pokemonName: string }) => {
   const api = new PokemonClient();
   const getPokemonData = async () => {
     try {
-      const pokemonData =await api.getPokemonByName(pokemonName);
+      const pokemonData = await api.getPokemonByName(pokemonName);
       const pokemonInfo = {
         name: pokemonData.name,
         height: pokemonData.height,
@@ -20,8 +20,6 @@ const PokedexComponent = async ({pokemonName} : {pokemonName : string}) => {
     }
   };
   const pokemonStats = await getPokemonData();
-
-
 
   return (
     <div>
