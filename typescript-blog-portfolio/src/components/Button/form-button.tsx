@@ -3,6 +3,7 @@ interface FormButtonProps {
   version: string;
   type: "submit" | "reset" | "button";
   isDisabled?: boolean;
+  onClick?: ()=> void
 }
 
 const FormButton: React.FC<FormButtonProps> = ({
@@ -10,9 +11,10 @@ const FormButton: React.FC<FormButtonProps> = ({
   version,
   type,
   isDisabled,
+  onClick
 }) => {
   return (
-    <button type={type} disabled={isDisabled} className={`${version}`}>
+    <button type={type} disabled={isDisabled} className={`${version}`} onClick={onClick}>
       {children}
     </button>
   );
