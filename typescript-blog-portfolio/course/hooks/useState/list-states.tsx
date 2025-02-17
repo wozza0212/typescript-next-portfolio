@@ -27,8 +27,11 @@ const ListUpdater = () => {
     }
 
     const addPerson = () => {
-        const anotherPerson : Person = {name: 'timmy', id: 8}
-        
+        const anotherPerson = {name: 'timmy', id: 8} as Person
+        list.push(anotherPerson)
+        console.log(list)
+        setList(list => [...list])
+
     }
     return (
         <div>
