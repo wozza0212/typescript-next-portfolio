@@ -49,3 +49,19 @@ const UseStateBasics = () => {
 
 export default UseStateBasics;
 ```
+
+Things aren't always simple, even the simple thigns arent always simple, I went through all manner of ways to try and write
+a simple list updater involving use state, I couldn't for the life of me add a new piece of data to a list of objects and 
+get the page to refresh, in the end I got it to work like this
+
+```code block
+    const addPerson = () => {
+        const anotherPerson = {name: 'timmy', id: 8} as Person
+        list.push(anotherPerson)
+        console.log(list)
+        setList(list => [...list])
+
+    }
+```
+
+This is the function used to add a new person, updating the list with the arrow function is what i was missing
