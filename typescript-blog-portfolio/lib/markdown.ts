@@ -13,8 +13,6 @@ const getDirectory = (path: string): string => {
   return join(process.cwd(), path);
 };
 
-const BLOG_DIR = getDirectory("blogs");
-
 const getItemInPath = (filePath: string): MarkdownItem => {
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);

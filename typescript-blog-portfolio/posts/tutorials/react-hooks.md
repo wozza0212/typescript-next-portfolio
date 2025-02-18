@@ -64,4 +64,44 @@ get the page to refresh, in the end I got it to work like this
     }
 ```
 
+- When using a submit button to update a form, if you dont want the page to reload make sure you add *e.preventDefault()* to the function it is using, I have also found a better way to update the list
+
+```code block
+const [list, setList] = useState<Person[]>(People);
+  const [newName, setNewName] = useState("");
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewName(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    newId += 1;
+    const newPerson: Person = { name: newName, id: newId };
+    console.log(list);
+    setList([...list, newPerson]);
+    setNewName("")
+  };
+  ```
+
+  ```code block
+
+  const [list, setList] = useState<Person[]>(People);
+  const [newName, setNewName] = useState("");
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewName(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    newId += 1;
+    const newPerson: Person = { name: newName, id: newId };
+    console.log(list);
+    setList([...list, newPerson]);
+    setNewName("")
+  };
+
+  ```
+
 This is the function used to add a new person, updating the list with the arrow function is what i was missing
