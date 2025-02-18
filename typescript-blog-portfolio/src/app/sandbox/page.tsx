@@ -12,6 +12,9 @@ const Sandbox = () => {
         <Link href="/sandbox/pokedex">
           <h2>Pokedex</h2>
         </Link>
+        <Link href="/sandbox/hooks/useState">
+          <h2>Basics</h2>
+        </Link>
       </div>
     </BaseLayout>
   );

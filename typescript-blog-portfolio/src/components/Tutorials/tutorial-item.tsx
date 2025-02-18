@@ -23,7 +23,7 @@ const TutorialItem: FunctionComponent<Props> = (props: Props) => {
         key={index}
         className="h-80 aspect-w-1 aspect-h-1 w-full rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-40"
       >
-        <Link href={`/blog/${post.slug}`}>
+        <Link href={`/tutorials/${post.slug}`}>
           <div className="relative h-80 aspect-w-1 aspect-h-1 w-full rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-40">
             <Image
               src={post.image}
