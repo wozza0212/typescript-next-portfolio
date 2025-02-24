@@ -3,6 +3,12 @@ import PokeAPI from "pokeapi-typescript";
 import Image from "next/legacy/image";
 import { useEffect, useState, FormEvent } from "react";
 import styles from "./pokedex.module.css";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
+async function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 type PokemonData = {
   id: number;
@@ -53,6 +59,7 @@ const PokedexComp = () => {
             return newPokemonData;
           },
         );
+        await sleep(1000)
         setIsLoading(false);
         setPokemonData(pokemonNew);
       } catch (error) {
@@ -102,8 +109,39 @@ const PokedexComp = () => {
       </div>
       {isLoading && (
         <div>
-          <h1>Page Loading</h1>
-        </div>
+          <div className={styles.pokemonCard}>
+            <span className={styles.resultSpan}>
+            <Skeleton containerClassName={styles.cardHeading} />
+            </span>
+            <div className={styles.spriteBorder}>
+                <Skeleton 
+                width={200}
+                height={200}
+                customHighlightBackground="linear-gradient(90deg, var(--base-color) 40%, var(--highlight-color) 50%, var(--base-color) 60%)" 
+              />
+            </div>
+            <span className={styles.resultSpan}>
+              <Skeleton containerClassName={styles.cardHeading}
+              customHighlightBackground="linear-gradient(90deg, var(--base-color) 40%, var(--highlight-color) 50%, var(--base-color) 60%)"/>
+            </span>
+            <span className={styles.resultSpan}>
+              <Skeleton containerClassName={styles.cardHeading}
+              customHighlightBackground="linear-gradient(90deg, var(--base-color) 40%, var(--highlight-color) 50%, var(--base-color) 60%)"/>
+            </span>
+            <span className={styles.resultSpan}>
+              <Skeleton containerClassName={styles.cardHeading}
+              customHighlightBackground="linear-gradient(90deg, var(--base-color) 40%, var(--highlight-color) 50%, var(--base-color) 60%)"/>
+            </span>
+            <span className={styles.resultSpan}>
+              <Skeleton containerClassName={styles.cardHeading}
+              customHighlightBackground="linear-gradient(90deg, var(--base-color) 40%, var(--highlight-color) 50%, var(--base-color) 60%)"/>
+            </span>
+            <span className={styles.resultSpan}>
+              <Skeleton containerClassName={styles.cardHeading}
+              customHighlightBackground="linear-gradient(90deg, var(--base-color) 40%, var(--highlight-color) 50%, var(--base-color) 60%)"/>
+            </span>
+            </div>
+          </div>
       )}
       {!searchError && !isLoading && (
         <div>
