@@ -40,19 +40,20 @@ const ListUpdater = () => {
     setList([]);
   };
 
-  const addPerson = () => {
-    const anotherPerson = { name: "timmy", id: 8 } as Person;
-    list.push(anotherPerson);
-    console.log(list);
-    setList((list) => [...list]);
-  };
+  // const addPerson = () => {
+  //   const anotherPerson = { name: "timmy", id: 8 } as Person;
+  //   list.push(anotherPerson);
+  //   console.log(list);
+  //   setList((list) => [...list]);
+  // };
   return (
     <div>
       {list.map((person) => {
         const { id, name } = person;
         return (
           <div key={id}>
-            <h2 key={id}>{name}</h2>
+            <h2 >name: {name}</h2>
+            <h2 >id: {id}</h2>
             <FormButton
               type="button"
               version="primaryButton"
