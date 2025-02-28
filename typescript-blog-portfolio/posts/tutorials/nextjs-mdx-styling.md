@@ -1,5 +1,5 @@
 ---
-title: "Styling MDX tet in NextJS"
+title: Styling MDX tet in NextJS
 description: Learn how to style markdown
 image: /Images/BlogTitles/mdlogo.png
 date: "2052-02-10"
