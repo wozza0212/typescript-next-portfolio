@@ -1,3 +1,10 @@
+---
+title: "Styling Layouts and Fonts"
+description: Notes on styling the Layout and Fonts
+image: /Images/BlogTitles/mdlogo.png
+date: "2025-02-17"
+---
+
 ### Layout
 1. Alignent is key
 -   Left Alignment is most natural
