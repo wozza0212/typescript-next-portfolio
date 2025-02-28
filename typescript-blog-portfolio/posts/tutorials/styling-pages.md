@@ -1,3 +1,4 @@
+### Layout
 1. Alignent is key
 -   Left Alignment is most natural
 - many types, top, bottom, center, left, right
@@ -32,3 +33,32 @@
 - Proximity is important, related things should be close together
 
 #### Typography
+- Styles, bold, regular, contect, compatibality
+- Some sites like google are basically just text
+- Typeface and font are different things, Helvetica is a typeface, Helvetical Bold is a font
+- Proxima Soft would be a good font for my website, soft and approaching
+
+### Typeface Categories
+- Serif(usually have small tails) vs Sans Serif
+- Styles
+    - Old Styles, classical, businesses like law firms
+    - Mordern, similar to classicals, usually used for luxury and professional stuff, usually reserved for headlines
+    - Slab, suitable for mechanical and string things
+    - Sans Serif, most versatile
+    - Display, unforgiving personalities, shouldnt be used for paragraphs
+    - Script, not to be used for paragraphs
+
+### Setting Type
+- panorama settings(wide spaced), makes font stand out more
+- Changing spacing and line height can make text much easier to read
+- Font Weights
+
+## Use Maximum 2 fonts for each project, Make sure they're different
+
+### Where to find fonts
+- da fonts (for free fonts, although free fonts should be avoided)
+- Paid fonts are usually superior and less likely to be overused
+- subscription fonts, such as adobe fonts
+- google fonts is probably the best option, also built in to figma and webflow
+- check out ofnt ninja to find out font that a website is using
+
