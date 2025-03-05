@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { FunctionComponent, PropsWithChildren } from "react";
-import NavBar from "../NavBar/navbar";
 
 const PageLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
   return (
