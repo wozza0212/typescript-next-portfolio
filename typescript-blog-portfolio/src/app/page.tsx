@@ -7,6 +7,7 @@ import { NextPage } from 'next'
 import { Blog } from '../../interfaces/Blog'
 import { Tutorial } from '../../interfaces/Tutorial'
 import { getTutorials } from '../../lib/tutorials'
+import { Hero } from '@/components'
 
 type BlogPageProps = {
   blogs: Blog[]
@@ -22,7 +23,8 @@ const Home: NextPage<BlogPageProps | TutorialPageProps> = () => {
   return (
     <BaseLayout>
       <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-        <h1 className='text-6xl font-bold'>Tech Talks</h1>
+        <Hero></Hero>
+        <h1 className='text-xl font-bold'>Tech Talks</h1>
         <br />
         <div>
           <div>
