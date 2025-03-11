@@ -24,24 +24,19 @@ const Home: NextPage<BlogPageProps | TutorialPageProps> = () => {
     <BaseLayout>
       <main className='flex min-h-screen flex-col items-center justify-between p-24'>
         <Hero></Hero>
-        <h1 className='text-xl font-bold'>Tech Talks</h1>
+        <h1 className='text-8xl font-bold text-black'>Tech Talks</h1>
         <br />
         <div>
           <div>
-            <h3>Blog Posts</h3>
+            <h3 className='text-3xl font-bold text-black'>Blog Posts</h3>
             <BlogList blogs={blogs} />
           </div>
           <div className='pt-10'>
-            <h3>Tutorials</h3>
+            <h3 className='text-3xl font-bold text-black'>Tutorials</h3>
             <TutorialList tutorials={tutorials} />
           </div>
         </div>
         <br />
-        <div></div>
-        <p className='text-xl'>
-          This is my blog where I write about web development and other things I
-          find interesting.
-        </p>
       </main>
     </BaseLayout>
   )
