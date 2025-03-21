@@ -9,11 +9,11 @@ const Hero: FunctionComponent = () => {
     <div className={styles.heroContainer}>
       <div className={styles.textBox}>
         <div className='text-lg text-black'>
-          <h2 className={styles.heroHeading}>
-            Combining Design with Application<p>I`m A</p>
-          </h2>
+          <h2 className={styles.intro}>Hello there, my names</h2>
+          <h2 className={styles.heroHeading}>Thomas Wasnidge</h2>
+          <h2 className={styles.intro}>and I{"'"}m A</h2>
 
-          <h2 className={styles.fullStack}>Full Stack Software Engineer</h2>
+          <h2 className={styles.heroHeading}>Full Stack Software Engineer</h2>
           <div>
             <p className={styles.thisSitePara}>
               This website is being created with the sole purpose to help{' '}
