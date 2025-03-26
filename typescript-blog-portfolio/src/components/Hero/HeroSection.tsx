@@ -9,18 +9,17 @@ const Hero: FunctionComponent = () => {
     <div className={styles.heroContainer}>
       <div className={styles.textBox}>
         <div className='text-lg text-black'>
-          <h2 className={styles.intro}>Hello there, my names</h2>
-          <h2 className={styles.heroHeading}>Thomas Wasnidge</h2>
-          <h2 className={styles.intro}>and I{"'"}m A</h2>
-
-          <h2 className={styles.heroHeading}>Full Stack Software Engineer</h2>
+          <h2 className={styles.heroHeading}>
+            Design, Create, Build, Learn, Relax
+          </h2>
           <div>
             <p className={styles.thisSitePara}>
-              This website is being created with the sole purpose to help{' '}
-              <Link href='/about'>me</Link> develop my skills as a softare
-              engineer, play with some design features that I dont always get to
-              do at work, and hopefully to help teach and inspire others to
-              begin or develop their software engineer career
+
+              Designing and building a website is not easy, especially when
+              you're doing it from the ground up, with little to no design experience!
+              So why would anyone want to do it? Well, I personally wanted to become a 
+              more well rounded engineer! 
+              <Link href='/about'>me</Link>
             </p>
           </div>
         </div>
