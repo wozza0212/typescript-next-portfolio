@@ -1,9 +1,9 @@
 interface FormButtonProps {
-  children: string;
-  version: string;
-  type: "submit" | "reset" | "button";
-  isDisabled?: boolean;
-  onClick?: ()=> void
+  children: string
+  version: string
+  type: 'submit' | 'reset' | 'button'
+  isDisabled?: boolean
+  onClick?: () => void
 }
 
 const FormButton: React.FC<FormButtonProps> = ({
@@ -11,13 +11,18 @@ const FormButton: React.FC<FormButtonProps> = ({
   version,
   type,
   isDisabled,
-  onClick
+  onClick,
 }) => {
   return (
-    <button type={type} disabled={isDisabled} className={`${version}`} onClick={onClick}>
+    <button
+      type={type}
+      disabled={isDisabled}
+      className={`${version}`}
+      onClick={onClick}
+    >
       {children}
     </button>
-  );
-};
+  )
+}
 
-export default FormButton;
+export default FormButton

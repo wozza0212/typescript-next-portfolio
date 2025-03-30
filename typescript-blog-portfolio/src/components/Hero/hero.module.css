@@ -2,18 +2,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 80vh;
+  height: 60vh;
   background: #f9f9f9;
 }
 
 .textBox {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid red;
   padding: 10px;
   width: 100%;
+  margin: 10px;
+  height: 55vh;
 }
 
 .intro {
@@ -25,7 +26,8 @@
 .heroHeading {
   display: block;
   padding: 10px;
-  @apply text-4xl;
+  padding-bottom: 30px;
+  @apply text-6xl;
 }
 .fullStack {
   display: block;
@@ -35,10 +37,22 @@
 .thisSitePara {
   display: block;
   padding: 10px;
+  padding-top: 5vh;
   @apply text-2xl;
 }
 
 .heroImage {
   display: block;
   padding: 10px;
+  size: fluid;
+  height: 60vh;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  padding-top: 10vh;
 }
