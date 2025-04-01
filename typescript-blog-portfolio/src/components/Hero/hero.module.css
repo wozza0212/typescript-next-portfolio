@@ -4,6 +4,8 @@
   align-items: center;
   height: 60vh;
   background: #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .textBox {
@@ -15,6 +17,7 @@
   width: 100%;
   margin: 10px;
   height: 55vh;
+  border-radius: 10px;
 }
 
 .intro {
@@ -38,6 +41,7 @@
   display: block;
   padding: 10px;
   padding-top: 5vh;
+  width: 80%;
   @apply text-2xl;
 }
 
@@ -46,6 +50,7 @@
   padding: 10px;
   size: fluid;
   height: 60vh;
+  border-radius: 10px;
 }
 
 .buttonContainer {
@@ -54,5 +59,4 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  padding-top: 10vh;
 }

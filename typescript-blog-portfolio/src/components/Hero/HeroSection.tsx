@@ -19,7 +19,6 @@ const Hero: FunctionComponent = () => {
               {'`'}re doing it from the ground up, with little to no design
               experience! So why would anyone want to do it? Well, I personally
               wanted to become a more well rounded engineer!
-              <Link href='/about'>me</Link>
             </p>
           </div>
         </div>
