@@ -1,6 +1,6 @@
 "use client";
 import { BaseLayout } from "@/components";
-import PokedexComp from "@/components/Pokedex/pokedexFetch";
+import PokedexComp from "@/components/unused_components/Pokedex/pokedexFetch";
 const Pokedex = () => {
   return (
     <BaseLayout>
