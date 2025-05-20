@@ -30,7 +30,7 @@ const NavBar = () => {
                 <p className={styles.navText}>About</p>
               </Link>
             </li>
-          <ul className={styles.dropdown}>
+          {/* <ul className={styles.dropdown}>
             <button>
               <span>
                 <li className={styles.dropdownSpan}>
@@ -64,7 +64,7 @@ const NavBar = () => {
                 </li>
               </ul>
             </div>
-          </ul>
+          </ul> */}
           </ul>
         </div>
         <div id="navbar-default">

@@ -26,7 +26,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/sandbox/form"
+    "removed_pages/sandbox/form"
   ],
   "exclude": ["node_modules"]
 }
