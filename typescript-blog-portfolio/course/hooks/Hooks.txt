@@ -1,0 +1,25 @@
+React used to be class based
+used to need higher order components and render props
+Hooks changed everything
+
+Hooks are functions starting with word used
+
+Only call them at top levle of a functional component
+
+
+useState Most important and used
+Handle state of reactive data, takes default state, returns an array for destructuring,
+
+const [count, setCount] = useState(0)
+
+
+useEffect
+COMPONENT LIFECYCLE
+    componentDidMount
+        initialized
+
+    componentDidUpdate
+        state updated
+
+    componentWillUnmount
+        destroyed
