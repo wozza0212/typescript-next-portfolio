@@ -5,6 +5,8 @@ import { MarkdownItem } from "../interfaces/Markdown";
 import html from "remark-html";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
+
+
 const getFileNames = (dir: string): string[] => {
   return fs.readdirSync(dir);
 };

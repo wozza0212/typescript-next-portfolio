@@ -7,7 +7,7 @@ import {
 } from "./markdown";
 import { Blog } from "../interfaces/Blog";
 
-const BLOG_DIR = getDirectory("posts/writeups");
+const BLOG_DIR = getDirectory("src/app/content/blog_pages");
 
 const getBlogFileNames = () => {
   return getFileNames(BLOG_DIR);

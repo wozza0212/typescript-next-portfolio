@@ -4,6 +4,17 @@ description: Learn how to style markdown
 image: /Images/BlogTitles/mdlogo.png
 date: "2052-02-10"
 ---
+import FormButton from '../../../components/Button/form-button.tsx'
+
+
+<Image
+  src="/images/photo2.jpg"
+  alt="Photo"
+  width={1125}
+  height={750}
+  priority
+  className="next-image"
+/>
 
 # How to colorize your MDX within a NextJS Blog post
 
@@ -84,4 +95,13 @@ const BlogDetail: NextPage<BlogDetailProps> = async ({ params }) => {
     </BaseLayout>
   );
 };
+```
+
+```tsx
+<FormButton
+  type="button"
+  version="primaryButton"
+  onClick={}>
+  Clear
+</FormButton>
 ```

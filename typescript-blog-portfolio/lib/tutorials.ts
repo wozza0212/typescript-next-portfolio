@@ -5,9 +5,11 @@ import {
   getAllItems,
   markdownToHTML,
 } from "./markdown";
+
+import { compileMDX } from  
 import { Tutorial } from "../interfaces/Tutorial";
 
-const TUTORIAL_DIR = getDirectory("posts/tutorials");
+const TUTORIAL_DIR = getDirectory("src/app/content/tutorials");
 
 const getTutorialFileNames = () => {
   return getFileNames(TUTORIAL_DIR);
@@ -15,12 +17,12 @@ const getTutorialFileNames = () => {
 
 const getTutorial = (fileName: string): Tutorial => {
   const tutorial = getItemInPath(`${TUTORIAL_DIR}/${fileName}`) as Tutorial;
-  tutorial.slug = fileName.replace(".md", "");
+  tutorial.slug = fileName.replace(".mdx", "");
   return tutorial;
 };
 
 const getAllTutorialSlugs = () => {
-  return getTutorialFileNames().map((fileName) => fileName.replace(".md", ""));
+  return getTutorialFileNames().map((fileName) => fileName.replace(".mdx", ""));
   // return getBlogFileNames().map((fileName) => fileName.replace(/\.md$/, ""));
 };
 
@@ -30,7 +32,7 @@ const getTutorials = (): Tutorial[] => {
 };
 
 const getTutorialBySlug = (slug: string): Tutorial => {
-  const fileName = slug + ".md";
+  const fileName = slug + ".mdx";
   return getTutorial(fileName);
 };
 

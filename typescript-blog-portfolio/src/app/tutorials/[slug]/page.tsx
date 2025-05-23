@@ -1,4 +1,6 @@
 import { Metadata, NextPage } from "next/types";
+import { MDXProvider } from '@mdx-js/react'
+import { MDXComponents } from 'mdx/types'
 import {
   getAllTutorialSlugs,
   getTutorialBySlugWithMarkdown,
@@ -13,6 +15,8 @@ const css = {
   li: "prose-li:text-pink",
   code: "prose-code:text-pink",
 };
+
+const components: MDXComponents = {}
 
 export const generateStaticParams = async () => {
   const slugs = getAllTutorialSlugs();
@@ -36,13 +40,16 @@ const tutorialDetail: NextPage<tutorialDetailProps> = async ({ params }) => {
   const { slug } = params;
   const tutorial: Tutorial = await getTutorialBySlugWithMarkdown(slug);
   return (
+    
     <BaseLayout>
       <div className="w-2/3 m-auto">
+    {/* <MDXProvider> */}
         <article
           className={`prose lg:prose-lg ${css.h} ${css.p} ${css.a} ${css.strong} ${css.li} ${css.code} markdown-image-50`}
         >
           <div dangerouslySetInnerHTML={{ __html: tutorial.content }} />
         </article>
+      {/* </MDXProvider> */}
       </div>
     </BaseLayout>
   );
